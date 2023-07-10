@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="fontawesome/js/all.js"></script>
+  <title>Data Nilai Siswa</title>
+</head>
+<body>
+  <nav class="navbar">
+    <h1 class="navbar__title">Data Nilai Siswa</h1>
+  </nav>
+
+  <div class="container">
+    <form enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="csv">Upload</label>
+        <input type="file" name="csv" accept=".csv" id="csv" class="form-control-file" />
+      </div>
+      <input type="submit" name="tombol" value="Kirim" class="btn btn-primary" />
+    </form>
+
+    <div class="search">
+      <input type="text" placeholder="Pencarian.." class="form-control">
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+
+  <script src="fontawesome/js/all.js"></script>
+</body>
+</html>

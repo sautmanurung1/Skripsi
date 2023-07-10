@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Penentuan Kelas Unggulan</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Penentuan Kelas Unggulan</h2>
+    <form id="inputForm" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="csvFile">Unggah File CSV:</label>
+        <input type="file" class="form-control-file" id="csvFile" accept=".csv">
+      </div>
+      <button type="submit" class="btn btn-primary">Proses</button>
+    </form>
+    <div id="result" class="mt-4">
+      <h4>Hasil Penentuan Kelas Unggulan:</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Siswa</th>
+            <th scope="col">Kelas Awal</th>
+            <th scope="col">Kelas Hasil</th>
+          </tr>
+        </thead>
+        <tbody id="resultBody">
+          <!-- Hasil penentuan kelas unggulan akan ditampilkan di sini -->
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-success" id="exportBtn">Export Hasil</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
