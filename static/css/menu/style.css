@@ -1,4 +1,5 @@
 body {
+    background: aliceblue;
     margin: 0;
     font-family: 'Times New Roman' , Times, serif;
     font-size: 1rem;
@@ -136,23 +137,89 @@ section h1 {
 .container {
     position: absolute;
     right: 0;
-    width: 80vw;
-    height: 100vh;
+    width: 0vw;
+    height: 0vh;
+    align-items: center;
+}
+.container {
+    position: absolute;
+    right: 0;
+    width: auto;
+    height: 100vw;
 }
 
 .header {
     position: fixed;
     top: 0;
     right: 0;
-    width: 80vw;
-    height: 10vh;
     background: lightgray;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 2);
     z-index: 1;
 }
 
+.nav {
+    width: 90%;
+    display: flex ;
+    align-items: center;
+}
 
+.search {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    justify-content: center;
+}
 
+.search input[type="text"] {
+    padding: 5px;
+    border: none;
+    background: white;
+    border-radius: 4px;
+}
+
+.search button {
+    padding: 5px;
+    display: flex;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+}
+.search button:hover{
+    color: #fff;
+}
+
+.cards {
+    padding: 80px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: cent;
+    flex-wrap: wrap;
+
+}
+.card {
+    width: 230px;
+    height: 130px;
+    background: white;
+    margin: 14px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.box h1{
+    color: blue;
+}
+
+.icon {
+    color: gray;
+    font-size: 40px;
+}
+
+.icon:hover {
+    color: green;
+}

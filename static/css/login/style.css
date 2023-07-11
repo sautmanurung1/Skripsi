@@ -3,7 +3,7 @@
     font-family: 'Poppins' ,sans-serif;
 }
 body{
-    background-image: url("images/sekolah.jpg");
+    background-image: url("/static/images/sekolah.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

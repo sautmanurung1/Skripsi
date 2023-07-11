@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    background-image: url("/static/images/reegister.jpg");
+  }
+  
+  .container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .form-group {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    font-size: 16px;
+    transition: border-bottom-color 0.3s ease;
+  }
+  
+  label {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    color: #999;
+    pointer-events: none;
+    transition: top 0.3s ease, left 0.3s ease, font-size 0.3s ease;
+  }
+  
+  input:focus {
+    outline: none;
+    border-bottom-color: #06c;
+  }
+  
+  input:focus + label {
+    top: -10px;
+    left: 5px;
+    font-size: 12px;
+    color: #06c;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #06c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0458a2;
+  }

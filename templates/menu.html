@@ -17,28 +17,66 @@
         <div class="sidebar">
             <div class="top">
                 SMPN1 PANGARIBUAN
-                <img src="{{ url_for('static', filename='image/Logo.png') }}" alt=" SMP N 1 PANGARIBUAN">
+                <img src="{{ url_for('static', filename='css/menu/image/Logo.png') }}" alt="SMP N 1 PANGARIBUAN">
             </div>
             <ul>
-                <li><a class="#" href="#"><i class="fa fa-house"></i> Dashboard</i></a></li>
-                <li><a class="#" href="#"><i class="fa fa-children"></i> Data Siswa</i></a></li>
-                <li><a class="#" href="#"><i class="fa fa-square-poll-horizontal"></i> Data Nilai</i></a></li>
-                <li><a class="#" href="#"><i class="fa fa-square-poll-horizontal"></i> K-Medoids</i></a></li>
-                <li><a class="#" href="#"><i class="fa fa-user"></i> User</i></a></li>
-                <li><a class="#" href="#"><i class="fa fa-right-from-bracket"></i> Logout</i></a></li>
+                <li><a class="#" href="#"><i class="fa fa-house"></i> Dashboard</a></li>
+                <li><a class="#" href="/datasiswa"><i class="fa fa-children"></i> Data Siswa</a></li>
+                <li><a class="#" href="/datanilai"><i class="fa fa-square-poll-horizontal"></i> Data Nilai</a></li>
+                <li><a class="#" href="/clustering"><i class="fa fa-square-poll-horizontal"></i> K-Medoids</a></li>
+                <li><a class="#" href="#"><i class="fa fa-user"></i> User</a></li>
+                <li><a class="#" href="/logout"><i class="fa fa-right-from-bracket"></i> Logout</a></li>
             </ul>
         </div>
-<div class="container">
-    <div class="header">
-        <div class="nav">
-            <div class="search">
-                <input type="text" placeholder="Pencarian..">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-            <div class="user">
+        <div class="container">
+            <div class="header">
+                <div class="nav">
+                    <div class="search">
+                        <input type="text" placeholder="Pencarian..">
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+        <div class="content">
+            <div class="cards">
+                <div class="card">
+                    <div class="box">
+                        <h1>3279</h1>
+                        <h3>Data Siswa</h3>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-children"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="cards">
+                <div class="card">
+                    <div class="box">
+                        <h1>3279</h1>
+                        <h3>Data Nilai</h3>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-square-poll-horizontal"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="cards">
+                <div class="card">
+                    <div class="box">
+                        <h1>3279</h1>
+                        <h3>K-Medoids</h3>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-children"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

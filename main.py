@@ -17,7 +17,7 @@ def allowed_file(filename):
 def dashboard():
     return render_template('login.html')
 
-@app.route('/login', method=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     msg = ''
     if request.method == 'POST' and 'username' in request.form:
@@ -38,7 +38,7 @@ def login():
             msg = 'Incorrect username/password'
     return render_template('login.html', msg = msg)
 
-@app.route('/register', method=['GET', 'POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     msg = ''
     if request.method == 'POST' and 'first_name' in request.form and 'last_name' in request.form and 'username' in request.form and 'password' in request.form and 'phone' in request.form:
@@ -74,6 +74,18 @@ def logout():
 @app.route('/menu')
 def home():
     return render_template('menu.html')
+
+@app.route('/datasiswa')
+def datasiswa():
+    return render_template('datasiswa.html')
+
+@app.route('/datanilai')
+def datanilai():
+    return render_template('datanilai.html')
+
+@app.route('/clustering')
+def clusteringkelas():
+    return render_template('clusteringkelas.html')
 
 @app.route('/file_upload', methods=['POST'])
 def upload_file():
