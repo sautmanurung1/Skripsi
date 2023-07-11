@@ -6,6 +6,7 @@ from werkzeug.utils import secure_filename
 import MySQLdb.cursors
 import re
 import datetime as dt
+import csv
 
 ALLOW_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'csv'])
 
@@ -74,25 +75,38 @@ def logout():
 def home():
     return render_template('menu.html')
 
-@app.route('/file_upload', method=['POST'])
+@app.route('/file_upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
-        resp = jsonify({'message' : 'No File part in the request'})
+        resp = jsonify({'message': 'No File part in the request'})
         resp.status_code = 400
         return resp
+    
     file = request.files['file']
     if file.filename == '':
-        resp = jsonify({'message' : 'No File selected for uploading'})
+        resp = jsonify({'message': 'No File selected for uploading'})
         resp.status_code = 400
         return resp
+    
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        resp = jsonify({'message' : 'File successfully uploaded'})
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(file_path)
+        
+        # Process the CSV file and unmarshal data into the database
+        with open(file_path, 'r') as csv_file:
+            csv_reader = csv.DictReader(csv_file)
+            for row in csv_reader:
+                # Assuming you have a database model called 'DataModel'
+                data = DataModel(column1=row['nama'], column2=row['pengetahuan semester 1'], column3=row['keterampilan semester 1'], column4=row['pengetahuan semester 2'], column5=row['keterampilan semester 2'])
+                db.session.add(data)
+            db.session.commit()
+        
+        resp = jsonify({'message': 'File successfully uploaded and data unmarshalled into the database'})
         resp.status_code = 201
         return resp
     else:
-        resp = jsonify({'message' : 'Allowed file types are csv'})
+        resp = jsonify({'message': 'Allowed file types are csv'})
         resp.status_code = 400
         return resp
 

@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Penentuan Kelas Unggulan</title>
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/clusteringkelas/bootstrap/css/bootstrap.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/clusteringkelas/style.css') }}">
 </head>
 <body>
   <div class="container">
@@ -33,6 +33,6 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="{{ url_for('static', filename='css/clusteringkelas/script.js') }}"></script>
 </body>
 </html>

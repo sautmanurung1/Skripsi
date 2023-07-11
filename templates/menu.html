@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="fontawesome/js/all.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu/style.css') }}">
+    <script src="{{ url_for('static', filename='css/menu/fontawesome/js/all.js') }}"></script>
     <title>Menu</title>
 </head>
 <body>
@@ -17,7 +17,7 @@
         <div class="sidebar">
             <div class="top">
                 SMPN1 PANGARIBUAN
-                <img src="image/Logo.png" alt=" SMP N 1 PANGARIBUAN">
+                <img src="{{ url_for('static', filename='image/Logo.png') }}" alt=" SMP N 1 PANGARIBUAN">
             </div>
             <ul>
                 <li><a class="#" href="#"><i class="fa fa-house"></i> Dashboard</i></a></li>
