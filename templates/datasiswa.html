@@ -8,25 +8,101 @@
   <title>Data Siswa</title>
 </head>
 <body>
-  <nav class="navbar">
-    <h1 class="navbar__title">Data Siswa</h1>
-  </nav>
-
-  <div class="container">
-    <form enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="csv">Upload</label>
-        <input type="file" name="csv" accept=".csv" id="csv" class="form-control-file" />
+  <main>
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fa fa-arrow-right" id="open"></i>
+    </label>
+    <div class="sidebar">
+      <div class="top">
+        SMPN1 PANGARIBUAN
+        <img src="{{ url_for('static', filename='css/datasiswa/image/Logo.png') }}" alt="SMP N 1 PANGARIBUAN">
       </div>
-      <input type="submit" name="tombol" value="Kirim" class="btn btn-primary" />
-    </form>
-
-    <div class="search">
-      <input type="text" placeholder="Pencarian.." class="form-control">
-      <button type="submit"><i class="fas fa-search"></i></button>
+      <ul>
+        <li><a href="/menu" class=""><i class="fa fa-house"></i> Dashboard</a></li>
+        <li><a href="/datasiswa" class=""><i class="fa fa-children"></i> Data Siswa</a></li>
+        <li><a href="/datanilai" class=""><i class="fa fa-square-poll-horizontal"></i> Data Nilai</a></li>
+        <li><a href="/clustering" class=""><i class="fa fa-square-poll-horizontal"></i> K-Medoids</a></li>
+        <li><a href="#" class=""><i class="fa fa-user"></i> User</a></li>
+        <li><a href="/logout" class=""><i class="fa fa-right-from-bracket"></i> Logout</a></li>
+      </ul>
     </div>
-  </div>
-
+    <div class="container">
+      <div class="header">
+        <div class="nav">
+          <div class="search">
+            <input type="text" placeholder="Pencarian..">
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container1">
+      <form enctype="multipart/form-data" action="/file_upload-data-siswa" method="POST">
+        <div class="form-group">
+          <label for="csv">Upload</label>
+          <input type="file" name="csv" accept=".csv" id="csv" class="form-control-file" />
+        </div>
+        <input type="submit" name="tombol" value="Kirim" class="btn btn-primary" />
+      </form>
+    </div>
+    
+    <!-- Tabel hasil import -->
+    <div class="container2">
+      <table id="csvTable">
+        <thead>
+          <tr>
+            <th>NO</th>
+            <th>NAMA SISWA</th>
+            <th>NIS</th>
+            <th>JK</th>
+            <th>KELAS AWAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Baris tabel akan di-generate menggunakan JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </main>
   <script src="{{ url_for('static', filename='css/datasiswa/fontawesome/js/all.js') }}"></script>
+  <script>
+    // JavaScript code to generate table rows dynamically
+    fetch('/fetch_data-siswa') // Assuming you have a route to fetch data from the database
+      .then(response => response.json())
+      .then(data => {
+        const tableBody = document.querySelector('#csvTable tbody');
+        let rowNumber = 1;
+        data.forEach(row => {
+          const newRow = document.createElement('tr');
+          const rowNumberCell = document.createElement('td');
+          rowNumberCell.textContent = rowNumber;
+          const nisCell = document.createElement('td');
+          nisCell.textContent = row.nis;
+          const nameCell = document.createElement('td');
+          nameCell.textContent = row.nama;
+          const JenisKelaminCell = document.createElement('td');
+          JenisKelaminCell.textContent = row.jenis_kelamin;
+          const KelasAwalCell = document.createElement('td');
+          KelasAwalCell.textContent = row.kelas_awal;
+          
+          newRow.appendChild(rowNumberCell);
+          newRow.appendChild(nisCell);
+          newRow.appendChild(nameCell);
+          newRow.appendChild(JenisKelaminCell);
+          newRow.appendChild(KelasAwalCell);
+          tableBody.appendChild(newRow);
+          
+          rowNumber++;
+        });
+      })
+      .catch(error => console.error(error));
+  </script>
 </body>
 </html>
+
+
+
+
+

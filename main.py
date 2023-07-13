@@ -2,16 +2,16 @@ from app import app
 from db_config import mysql
 from flask import Flask, render_template, url_for, redirect, request, session, jsonify
 from werkzeug.security import check_password_hash, generate_password_hash
-from werkzeug.utils import secure_filename
 import MySQLdb.cursors
 import re
 import datetime as dt
 import csv
+import os
+from os.path import join, dirname, realpath
+import pandas as pd
 
-ALLOW_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'csv'])
-
-def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOW_EXTENSIONS
+UPLOAD_FOLDER = 'static/uploads'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def dashboard():
@@ -87,40 +87,110 @@ def datanilai():
 def clusteringkelas():
     return render_template('clusteringkelas.html')
 
-@app.route('/file_upload', methods=['POST'])
+@app.route('/file_upload-data-nilai', methods=['POST'])
 def upload_file():
-    if 'file' not in request.files:
-        resp = jsonify({'message': 'No File part in the request'})
-        resp.status_code = 400
-        return resp
-    
-    file = request.files['file']
-    if file.filename == '':
-        resp = jsonify({'message': 'No File selected for uploading'})
-        resp.status_code = 400
-        return resp
-    
-    if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
-        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        file.save(file_path)
-        
-        # Process the CSV file and unmarshal data into the database
-        with open(file_path, 'r') as csv_file:
-            csv_reader = csv.DictReader(csv_file)
-            for row in csv_reader:
-                # Assuming you have a database model called 'DataModel'
-                data = DataModel(column1=row['nama'], column2=row['pengetahuan semester 1'], column3=row['keterampilan semester 1'], column4=row['pengetahuan semester 2'], column5=row['keterampilan semester 2'])
-                db.session.add(data)
-            db.session.commit()
-        
-        resp = jsonify({'message': 'File successfully uploaded and data unmarshalled into the database'})
-        resp.status_code = 201
-        return resp
-    else:
-        resp = jsonify({'message': 'Allowed file types are csv'})
-        resp.status_code = 400
-        return resp
+    # get the uploaded file
+    uploaded_file = request.files['file']
+    if uploaded_file.filename != '':
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], uploaded_file.filename)
+        # set the file path
+        uploaded_file.save(file_path)
+        parseCSVDatanilai(file_path)
+        # save the file
+    return redirect(url_for('home'))
+
+@app.route('/file_upload-data-siswa', methods=['POST'])
+def upload_file_data_siswa():
+    uploaded_file_data_siswa = request.files['file']
+    if uploaded_file_data_siswa.filename != '':
+        file_path_data_siswa = os.path.join(app.config['UPLOAD_FOLDER'], uploaded_file_data_siswa.filename)
+        # set the file path
+        uploaded_file.save(file_path_data_siswa)
+        parseCSVDatasiswa(file_path_data_siswa)
+        # save the file
+    return redirect(url_for('home'))
+
+@app.route('/fetch_data-nilai')
+def fetch_data_nilai():
+     # Retrieve data from the database
+    cursor = mysql.connection.cursor()
+    query = "SELECT * FROM data_nilai"
+    cursor.execute(query)
+    data = cursor.fetchall()
+    cursor.close()
+
+    # Convert the data into a list of dictionaries
+    data_list = []
+    for row in data:
+        data_dict = {
+            'no': row[0],
+            'nis': row[1],
+            'nama': row[2],
+            'pengetahuan_semester_1': row[3],
+            'keterampilan_semester_1': row[4],
+            'pengetahuan_semester_2': row[5],
+            'keterampilan_semester_2': row[6]
+        }
+        data_list.append(data_dict)
+    return jsonify(data_list)
+
+@app.route('/fetch_data-siswa')
+def fetch_data_siswa():
+     # Retrieve data from the database
+    cursor = mysql.connection.cursor()
+    query = "SELECT * FROM data_siswa"
+    cursor.execute(query)
+    data = cursor.fetchall()
+    cursor.close()
+
+    # Convert the data into a list of dictionaries
+    data_list = []
+    for row in data:
+        data_dict = {
+            'no': row[0],
+            'nis': row[1],
+            'nama': row[2],
+            'jenis_lelamin': row[3],
+            'kelas_awal': row[4]
+        }
+        data_list.append(data_dict)
+    return jsonify(data_list)
+
+def parseCSVDatanilai(filePath):
+      # CVS Column Names
+      col_names = ['no','nama', 'pengetahuan_semester_1', 'keterampilan_semester_1' , 'pengetahuan_semester_2', 'keterampilan_semester_2']
+      # Use Pandas to parse the CSV file
+      csvData = pd.read_csv(filePath,names=col_names, header=None)
+      # Loop through the Rows
+      for i,row in csvData.iterrows():
+             sql = "INSERT INTO data_nilai (no, nama, pengetahuan_semester_1, keterampilan_semester_1, pengetahuan_semester_2, keterampilan_semester_2) VALUES (NULL, % s, % s, % s, % s, % s)"
+             value = (
+                        str(row['nama']),
+                        str(row['pengetahuan_semester_1']),
+                        str(row['keterampilan_semester_1']),
+                        str(row['pengetahuan_semester_2']),
+                        str(row['keterampilan_semester_2'])
+                    )
+             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+             cursor.execute(sql, value)
+             mysql.connection.commit()
+
+def parseCSVDatasiswa(filePath):
+      # CVS Column Names
+      col_names = ['No','Nama', 'Jenis Kelamin', 'Kelas Awal']
+      # Use Pandas to parse the CSV file
+      csvData = pd.read_csv(filePath,names=col_names, header=None)
+      # Loop through the Rows
+      for i,row in csvData.iterrows():
+             sql = "INSERT INTO data_siswa (no, nama, jenis_kelamin, kelas_awal) VALUES (NULL, % s, % s, % s)"
+             value = (
+                        row['Nama'],
+                        row['Jenis Kelamin'],
+                        row['Kelas Awal']
+                    )
+             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+             cursor.execute(sql, value)
+             mysql.connection.commit()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
