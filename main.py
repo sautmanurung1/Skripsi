@@ -10,12 +10,17 @@ import os
 from os.path import join, dirname, realpath
 import pandas as pd
 
-UPLOAD_FOLDER = 'static/uploads'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+UPLOAD_FOLDER_DATA_NILAI = 'static/uploads/dataNilai'
+app.config['UPLOAD_FOLDER_DATA_NILAI'] = UPLOAD_FOLDER_DATA_NILAI
+
+UPLOAD_FOLDER_DATA_SISWA = 'static/uploads/dataSiswa'
+app.config['UPLOAD_FOLDER_DATA_SISWA'] = UPLOAD_FOLDER_DATA_SISWA
+
 
 @app.route('/')
 def dashboard():
     return render_template('login.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -37,6 +42,7 @@ def login():
         else:
             msg = 'Incorrect username/password'
     return render_template('login.html', msg = msg)
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -64,6 +70,7 @@ def register():
         msg = 'Please fill out the form !'
     return render_template('register.html')
 
+
 @app.route('/logout')
 def logout():
     session.pop('loggedin', None)
@@ -71,44 +78,51 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
 
+
 @app.route('/menu')
 def home():
     return render_template('menu.html')
+
 
 @app.route('/datasiswa')
 def datasiswa():
     return render_template('datasiswa.html')
 
+
 @app.route('/datanilai')
 def datanilai():
     return render_template('datanilai.html')
 
+
 @app.route('/clustering')
 def clusteringkelas():
     return render_template('clusteringkelas.html')
+
 
 @app.route('/file_upload-data-nilai', methods=['POST'])
 def upload_file():
     # get the uploaded file
     uploaded_file = request.files['file']
     if uploaded_file.filename != '':
-        file_path = os.path.join(app.config['UPLOAD_FOLDER'], uploaded_file.filename)
+        file_path = os.path.join(app.config['UPLOAD_FOLDER_DATA_NILAI'], uploaded_file.filename)
         # set the file path
         uploaded_file.save(file_path)
         parseCSVDatanilai(file_path)
         # save the file
     return redirect(url_for('home'))
 
+
 @app.route('/file_upload-data-siswa', methods=['POST'])
 def upload_file_data_siswa():
     uploaded_file_data_siswa = request.files['file']
     if uploaded_file_data_siswa.filename != '':
-        file_path_data_siswa = os.path.join(app.config['UPLOAD_FOLDER'], uploaded_file_data_siswa.filename)
+        file_path_data_siswa = os.path.join(app.config['UPLOAD_FOLDER_DATA_SISWA'], uploaded_file_data_siswa.filename)
         # set the file path
-        uploaded_file.save(file_path_data_siswa)
+        uploaded_file_data_siswa.save(file_path_data_siswa)
         parseCSVDatasiswa(file_path_data_siswa)
         # save the file
     return redirect(url_for('home'))
+
 
 @app.route('/fetch_data-nilai')
 def fetch_data_nilai():
@@ -134,6 +148,7 @@ def fetch_data_nilai():
         data_list.append(data_dict)
     return jsonify(data_list)
 
+
 @app.route('/fetch_data-siswa')
 def fetch_data_siswa():
      # Retrieve data from the database
@@ -150,11 +165,12 @@ def fetch_data_siswa():
             'no': row[0],
             'nis': row[1],
             'nama': row[2],
-            'jenis_lelamin': row[3],
+            'jenis_kelamin': row[3],
             'kelas_awal': row[4]
         }
         data_list.append(data_dict)
     return jsonify(data_list)
+
 
 def parseCSVDatanilai(filePath):
       # CVS Column Names
@@ -175,18 +191,19 @@ def parseCSVDatanilai(filePath):
              cursor.execute(sql, value)
              mysql.connection.commit()
 
+
 def parseCSVDatasiswa(filePath):
       # CVS Column Names
       col_names = ['No','Nama', 'Jenis Kelamin', 'Kelas Awal']
       # Use Pandas to parse the CSV file
-      csvData = pd.read_csv(filePath,names=col_names, header=None)
+      csvData = pd.read_csv(filePath, names=col_names, header=None)
       # Loop through the Rows
       for i,row in csvData.iterrows():
              sql = "INSERT INTO data_siswa (no, nama, jenis_kelamin, kelas_awal) VALUES (NULL, % s, % s, % s)"
              value = (
-                        row['Nama'],
-                        row['Jenis Kelamin'],
-                        row['Kelas Awal']
+                        str(row['Nama']),
+                        str(row['Jenis Kelamin']),
+                        str(row['Kelas Awal'])
                     )
              cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
              cursor.execute(sql, value)
