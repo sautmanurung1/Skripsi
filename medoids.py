@@ -1,53 +1,95 @@
-import random
-import numpy as np
+import math
 
-def k_medoids(X, k, max_iteration=100):
-    # Inisialisasi medoids secara acak
-    medoids = random.sample(range(len(X)),k)
-    
-    # Lakukan klasterisasi awal
-    clusters = assign_clusters(X, medoids)
-    
-    # Hitung total simpangan awal
-    S = calculate_s(clusters, medoids)
-    
-    # Lakukan iterasi hingga konvergen atau mencapai batas iterasi maksimum 
-    for i in range(max_iteration):
-        # Lakukan reposisi medoid
-        new_medoids = relocate_medoids(X, clusters)
-        
-        # Lakukan klasterisasi ulang
-        new_clusters = assign_clusters(X, new_medoids)
-        
-        # Jika total simpangan baru lebih baik, gunakan medoid baru
-        if new_S < S:
-            medoids = new_medoids
-            clusters = new_clusters
-            S = new_S
-    
-    return clusters
+def calculate_distance(point1, point2):
+    x1, y1 = point1[1], point1[2]
+    x2, y2 = point2[1], point2[2]
 
-def assign_clusters(X, medoids):
-    clusters =[[] for _ in range(len(medoids))]
-    for i, x in enumerate(X):
-        distances = [np.linalg.norm(x - X[m]) for m in medoids]
-        cluster_index = np.argmin(distances)
-        clusters[cluster_index].append(i)
+    # Manhattan distance: abs(x1 - x2) + abs(y1 - y2)
+    # return abs(x1 - x2) + abs(y1 - y2)
 
-    return clusters
+    # Euclidean distance: sqrt((x2 - x1)^2 + (y2 - y1)^2)
+    return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
 
+def medoid_algorithm(dataset, medoids, max_iterations=100):
+    n = len(dataset)
+    k = len(medoids)
+    cluster_assignments = [0] * n
 
-def calculate_s(cluters, medoids):
-    S = 0
-    for i, c in enumerate(cluters):
-        for j in c:
-            S += np.linalg.norm(x[j] - X[medoids[i]])
-    return S
+    for iteration in range(max_iterations):
+        clusters = [[] for _ in range(k)]
 
-def relocate_medoids(X, clusters):
-    medoids = []
-    for c in clusters:
-        distances = [np.sum([np.linalg.norm(X[i] - X[j]) for j in c]) for i in c]
-        medoid_index = np.argmin(distances)
-        medoids.append(c[medoid_index])
-    return medoids
+        for i in range(n):
+            point = dataset[i]
+            min_distance = float('inf')
+            min_medoid_index = -1
+
+            for j in range(k):
+                medoid = medoids[j]
+                distance = calculate_distance(point, medoid)
+
+                if distance < min_distance:
+                    min_distance = distance
+                    min_medoid_index = j
+
+            cluster_assignments[i] = min_medoid_index
+            clusters[min_medoid_index].append(i)
+
+        new_medoids = []
+
+        for j in range(k):
+            cluster_indices = clusters[j]
+            min_cost = float('inf')
+            min_cost_index = -1
+
+            for cluster_index in cluster_indices:
+                cost = 0
+
+                for other_index in cluster_indices:
+                    other_point = dataset[other_index]
+                    cost += calculate_distance(dataset[cluster_index], other_point)
+
+                if cost < min_cost:
+                    min_cost = cost
+                    min_cost_index = cluster_index
+
+            new_medoids.append(dataset[min_cost_index])
+
+        if medoids == new_medoids:
+            break
+
+        medoids = new_medoids
+
+    return {'cluster_assignments': cluster_assignments, 'medoids': medoids}
+
+# Usage example:
+dataset = [
+    ['X1', 2, 6],
+    ['X2', 3, 4],
+    ['X3', 3, 8],
+    ['X4', 4, 7],
+    ['X5', 6, 2],
+    ['X6', 6, 4],
+    ['X7', 7, 3],
+    ['X8', 7, 4],
+    ['X9', 8, 5],
+    ['X10', 7, 6]
+]
+initial_medoids = [
+    ['C1', 3, 4],
+    ['C2', 7, 4],
+]
+max_iterations = 100
+print("---")
+result = medoid_algorithm(dataset, initial_medoids, max_iterations)
+cluster_assignments = result['cluster_assignments']
+medoids = result['medoids']
+
+# Display the cluster assignments and medoids
+print("Datasets:")
+print(dataset)
+print("Init Medoid:")
+print(initial_medoids)
+print("Cluster Assignments:")
+print(cluster_assignments)
+print("Medoids:")
+print(medoids)
