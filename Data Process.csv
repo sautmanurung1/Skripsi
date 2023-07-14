@@ -1,248 +1,247 @@
-No;Nama;Peng Sem 1;Ket Sem 1;Peng Sem 2;Ket Sem 2;Kelas Awal
-1;Agatta Kay Sella Sormin;81,3;80,5;84,4;84,9;7a
-2;Agustinus Robert Tua Tambunan;76,2;76,7;79,5;79;7a
-3;Alisya Kirana;82,6;82,4;85,6;85,2;7a
-4;Calista Anggriani Marbun;82,7;82,7;83,7;84,1;7a
-5;Chiren Amanda P, Silitonga;79,9;80,2;83,1;83,1;7a
-6;Dini Elisabet Dongoran;82,1;81,7;85,4;85,1;7a
-7;Dolok Maruarar Pakpahan;78,9;78,4;83,6;83,4;7a
-8;Epifaniya Lebora Dongoran;85,7;85,4;88,7;88,8;7a
-9;Heni Sianturi;84,6;85,1;86,4;86,3;7a
-10;Ipan Satria Harianja;78,8;77,8;81,9;82,4;7a
-11;Irhamna Faizul Pakpahan;78,1;77,8;80;79,8;7a
-12;Kevin Laurensius Sormin;77,8;77,4;79,7;79,8;7a
-13;Manganju A,V Marbun;76,1;76,6;80,33;79,67;7a
-14;Marcel Sijabat;80,5;81,1;82,2;82,1;7a
-15;Mateus Martuani Panjaitan;82,9;83;86,4;86,2;7a
-16;Mega Rias Riyani Azzahra;81;81,1;84,1;83,8;7a
-17;MIKAEL KEVIN WESLI SORMIN;77,5;77,2;78,7;79;7a
-18;Mike Roida Sormin;81,2;81,6;86;85,6;7a
-19;MORA SINTIA PAKPAHAN;79,7;78,8;83,8;83,9;7a
-20;Nadine Benedicta Naibaho;86,3;86,4;89;88,6;7a
-21;Nazryl F, Tampubolon;78,2;77,9;83;81,9;7a
-22;Novia Husna Pakpahan;79,8;79;82,7;82,3;7a
-23;OSRA IGNASIUS GULTOM;77,4;77;80,9;81;7a
-24;Paska Kristian Pakpahan;77,6;77,1;78,5;78,9;7a
-25;Petrus Risandi Pakpahan;78,5;78,1;80,2;80,5;7a
-26;Puput Yuni  Br, Matondang;83,3;83,5;85,4;85,6;7a
-27;Ridho Efendi Pakpahan;79,5;78,7;80,3;80,3;7a
-28;Ro Rezeky Simatupang;78,4;77,6;81,6;81,4;7a
-29;Santa Debora Teresia Sianturi;81,3;80,5;85,4;85,4;7a
-30;Teuku Robbi Alamsyah Bastari;79,3;79,2;83,4;82,6;7a
-31;THERESIA ROSALINDA NDRURU;85,2;84,5;88,5;88,3;7a
-32;Tiara Yosephine Sormin;80,1;79,7;82,4;82,6;7a
-33;Alfredo Pakpahan;77,1;76,8;80,2;81;7b
-34;Anugrah Harianja;75;75,5;78,4;79,1;7b
-35;Ardi Pakpahan;80;80,4;82,7;83,1;7b
-36;Boaz Jonathan Sormin;82,7;83,5;82,9;82,9;7b
-37;Citra Dewi Panjaitan;80;79,7;82,9;82,6;7b
-38;Dian Juniar Gultom;82,1;80,9;85;84,8;7b
-39;Dikky Ryan Maranatah Sormin;78,3;79,8;80,6;80,3;7b
-40;Doli Karunia Tambunan;79,4;79,3;81,5;81,1;7b
-41;ERAWATI PAKPAHAN;81,3;80,9;84,6;85,4;7b
-42;Ervin Alparis Panjaitan;79,4;80;81,3;82;7b
-43;HELMAN BINSAR PAKPAHAN;77,9;77,7;81,7;81,3;7b
-44;Ica Stefany Gultom;80,2;79,8;83,8;83,8;7b
-45;Imelda Rosmawati Silalahi;83,2;82,5;85,3;85;7b
-46;Kalvin Cleopatra Tambunan;79,2;79,4;82;82,5;7b
-47;Kevin Bincar Hatuaon Pakpahan;77;76,1;80,9;81,1;7b
-48;Kristin Debora Gultom;80,2;79,4;85,1;84,6;7b
-49;Lhoisa Pakpahan;81,5;81,1;83,3;83,6;7b
-50;MAGDALENA SIHOMBING;84,9;84,8;87,1;87,2;7b
-51;Martha Silitonga;82,6;82;86,4;86,2;7b
-52;Marvel Liberson Sormin;79,2;78,9;82,6;82,4;7b
-53;Michel Jeisen Panjaitan;81,6;81,1;86;85,3;7b
-54;Mikha Bunga Aulia Harianja;79,6;79,2;82,1;82,2;7b
-55;Pirman Muliadi Pakpahan;75;75,3;77,8;77,8;7b
-56;RIDO PRANSISKO SORMIN;75,8;76,4;79,7;79,5;7b
-57;Rohot Reynhad Geovani Sormin;78,1;77,8;81,4;81,7;7b
-58;Rosianna Gultom;79;79,4;82;81,8;7b
-59;Sadrak Pakpahan;78,2;78;82,9;82,5;7b
-60;Tumpal Paniroi Pakpahan;77,5;77;81,9;80,8;7b
-61;Welldy Natanael Harianja;79,3;77,9;82,8;82,6;7b
-62;YORA ROMIAN WIDYANATA SIMANJUNTAK;81,8;81,4;85,8;85,4;7b
-63;Zevanya Pakpahan;75,8;75,6;78,5;77,5;7b
-64;Adika Rivaldo Salomo Harianja;75;74,8;77,4;77,5;7c
-65;Andri Sigiron Pakpahan;76,8;76,9;81,6;81,9;7c
-66;Anjai P, Tan;80,6;79,9;84,4;84,7;7c
-67;Beniqno Harianja;77,8;77,9;79,6;79,9;7c
-68;Chrystin Natalia Sormin;80,3;79,5;82,5;82,6;7c
-69;CRISTIAN GULTOM;77,1;76,6;80,7;80,4;7c
-70;Cristmayer BH, Pakpahan;76,5;76;79,3;80,3;7c
-71;Deni Chandra Silitonga;76,1;76,1;78;78;7c
-72;Elisa Gultom;80,3;79,7;84;84,4;7c
-73;Gabriel Gamel Khan Sormin;80;80,2;81,8;81,8;7c
-74;GIDEON EFAPRAS PAKPAHAN;76,6;76,5;79,5;79,8;7c
-75;Gloria Pakpahan;79,5;78,6;85,2;85,8;7c
-76;Ira Olivia Purba;85,4;85,4;88,8;89;7c
-77;Jelita Pakpahan;85,5;85;87,8;87,7;7c
-78;JERICO SIMAMORA;81,8;80,4;86,3;86,3;7c
-79;Juan Tigor Silitonga;81,11;80,44;85,1;85;7c
-80;JULIANDA DESWITA PAKPAHAN;77,9;78;82,5;83,2;7c
-81;Kesya Cecilia Jahsya Harianja;77,8;77;81,9;82,1;7c
-82;Krisli Porsian Sirait;79,6;79,8;81,9;82,2;7c
-83;Lamria Nurmawati Simatupang;80,3;79,9;83,5;84,3;7c
-84;Laura Virgo Oktavia Sormin;79;78,1;82,8;82,6;7c
-85;Miracle Pakpahan;81,9;81,2;86,1;86,7;7c
-86;PATTAS EBRIAN TAMBUNAN;77,1;76,7;81,4;82;7c
-87;Pildes Baim Sormin;82,3;81,6;87,5;87;7c
-88;Piona Miranda Pakpahan;80,6;79;86,2;86,2;7c
-89;Putri Keyza Dongoran;83,2;82,1;86,3;86,5;7c
-90;Renghart Harianja;77,9;76,5;80,1;80,4;7c
-91;Santi Rouli Sormin;77,8;77,3;81,7;81,8;7c
-92;Talitha Fides Pakpahan;80,5;80,2;84,3;84,9;7c
-93;Tasya Novita Pakpahan;80,4;80,3;85;85,3;7c
-94;Yosi Wiranda Silaban;80,9;79,6;85,9;86,2;7c
-95;ZESSEN ASIDO BARTHOLDY GULTOM;79,4;78,6;83,1;83;7c
-96;Aditya Sormin;79,1;79,4;79,1;79,4;7d
-97;ALFREDO KRISTIAN SAPUTRA TAMBA;77,7;77,6;77,7;77,6;7d
-98;AMELIA INDAH PAKPAHAN;80,4;79,4;80,4;79,4;7d
-99;Andrean Agustinus Gultom;83,1;83,5;83,1;83,5;7d
-100;Armin Dita Panjaitan;80,5;80,1;80,5;80,1;7d
-101;Calista Pakpahan;81,9;82,1;81,9;82,1;7d
-102;Dela Tiona Pakpahan;82;81,2;82;81,2;7d
-103;Dewi Fransiska Lase;81,7;80,9;81,7;80,9;7d
-104;Ekaputra Ramdani Prasetyo;78,7;78,2;78,7;78,2;7d
-105;Erifa Yosepin Nainggolan;83;81,8;83;81,8;7d
-106;Fandri Susanto Pakpahan;79,3;78,6;79,3;78,6;7d
-107;Fiona Pakpahan;80,3;80,1;80,3;80,1;7d
-108;GRANITA PAKPAHAN;81,2;80,1;81,2;80,1;7d
-109;Heldiora Pakpahan;80,5;80;80,5;80;7d
-110;Indra Sugandi Sormin;80,5;81;80,5;81;7d
-111;Jesica Natasya Sormin;80,9;80,2;80,9;80,2;7d
-112;JOEL AVENTRI GULTOM;80,9;80;80,9;80;7d
-113;Jona Daut Sormin;78,1;78,5;78,1;78,5;7d
-114;Lenta Gultom;78,6;77,9;78,6;77,9;7d
-115;MUSTIKA PAKPAHAN;78,3;78,7;78,3;78,7;7d
-116;Noel Ricardo Gultom;77,5;77,4;77,5;77,4;7d
-117;RANNY PAKPAHAN;80,3;80,9;80,3;80,9;7d
-118;Revi Sintia Pakpahan;81,4;81,4;81,4;81,4;7d
-119;Rika Ervina Sormin;81;80,7;81;80,7;7d
-120;Rini Rahayu Enjelina Sihombing;79,6;78,9;79,6;78,9;7d
-121;Rohani Limbong;77,3;77,9;77,3;77,9;7d
-122;Samario Sianturi;78,8;78,9;78,8;78,9;7d
-123;Siska Septiani Harianja;79,5;79,3;79,5;79,3;7d
-124;Sonny Pantun Saputra Harianja;75,3;76;75,3;76;7d
-125;Sriniati Elisabeth Harianja;75,2;75,8;75,2;75,8;7d
-126;Tabita Pretti Pakpahan;78,3;78,7;78,3;78,7;7d
-127;UCCUK GULTOM;76,33;75,67;76,33;75,67;7d
-128;ANA LAURA PAKPAHAN;81,3;81,4;85,6;85,5;7e
-129;Angelica Novita Pauline Tambunan;81,5;81,7;85,8;85,7;7e
-130;Beatrice Rogate Harianja;85,5;85,4;89;88,6;7e
-131;Deby E,L Tambunan;86,1;86;90,3;90;7e
-132;Dela Elisabet Tanjung;82,3;82,4;86,7;86,6;7e
-133;Elisabet Kristiani Harianja;85,3;85,7;90,9;90,7;7e
-134;GRACIA FANISA INDRI TAMBUNAN;81,2;81,1;85,7;85,4;7e
-135;Gresya Rosindah Pakpahan;82,2;83,1;87,3;87,2;7e
-136;Hesekiel Tambunan;81,4;81,8;84,4;84,4;7e
-137;Iernest Margareth Pakpahan;83,5;84,4;89,7;89,6;7e
-138;Jeremia Mardongan Nababan;80;80,5;84,9;85,1;7e
-139;Jeremia Pebryan Pakpahan;81,9;81,8;85,6;85,6;7e
-140;Joshua Nigel Hutagaol;83,7;84,3;87,2;87;7e
-141;Kristin Aprilaresa Harianja;80,1;80,1;83,6;83,5;7e
-142;LIANA VERONIKA SIJABAT;84,4;84,8;87,1;86,9;7e
-143;Maria Denyati Gultom;82;81,5;85,4;85,1;7e
-144;Melva Simanungkalit;83,2;83,8;86,5;86,4;7e
-145;Nadia Gultom;83,9;84,9;86,5;86,4;7e
-146;NADYAH TAMBUNAN;83,7;84;87;86,9;7e
-147;Necia F,Sihombing;85;84,9;87,6;87,2;7e
-148;Neysa Evelin Silitonga;85,1;85,1;86,2;85,9;7e
-149;Priko Bagus Siregar;84,1;85;90,2;90,1;7e
-150;Rafael Benitez Gultom;83,3;84,3;85,8;85,4;7e
-151;Ramses Gultom;81,2;81,7;84,1;84,2;7e
-152;Rejeki Simanjuntak;85,4;85,3;86,1;86;7e
-153;Repan Immanuel Silitonga;83,1;83,7;86,8;86,9;7e
-154;Rifka Agatha Harianja;82,6;83,7;86,2;86,2;7e
-155;Romian Rhinjani Harianja;80,5;81,2;84;83,8;7e
-156;SARAH GULTOM;81,9;82,7;84,9;85,1;7e
-157;Yohana Isabela Tambunan;83,2;83,5;85,5;85,4;7e
-158;Yosua Elfrendy Tobing;80,6;81,1;84,8;85;7e
-159;Agnes Monica Pakpahan;78,8;78,3;83,7;83,6;7f
-160;ANDRE PARULIAN HUTAJULU;78,4;78;82;82;7f
-161;ARIPAL PAKPAHAN;76,6;76,5;80,6;80,7;7f
-162;Armina Devi Panjaitan;79,5;79;82,8;82,8;7f
-163;Aron Dava Panjaitan;78,3;78;79;79;7f
-164;Claralita Harianja;80,6;80,2;84,6;84,5;7f
-165;Devi Andrianti Sormin;79,3;79,1;83,7;83,5;7f
-166;Doan Ebenezer Pakpahan;75,8;75,7;79,6;79,8;7f
-167;Eduardo Hot Tua Pasaribu;80,4;79,6;84,1;84,1;7f
-168;Exapandi Maruli Tua Gultom;77,9;77,5;82,2;82,2;7f
-169;Franeka Sofiana Pakpahan;80,1;79,8;83,6;83,6;7f
-170;Gihon Derrik Harianja;81,1;81,2;84,9;84,9;7f
-171;Glen Abel Pakpahan;77,4;77,2;81,3;81,4;7f
-172;ILDA NIAWATI HASUGIAN;76,5;77,1;76,7;76,7;7f
-173;INDAH CITRA VALENSYA PAKPAHAN;78,8;78,6;84,5;84,4;7f
-174;Klinton Silitonga;75,1;75,1;77;76,9;7f
-175;Marolop Tua Silitonga;78,6;78,7;83,8;83,8;7f
-176;MENTARI AGUSTINA H, SIMANJUNTAK;79,5;80,1;85,6;85,5;7f
-177;Natalia Siregar;81,5;80,9;86,3;86,2;7f
-178;Nikolas Maloni Sormin;75,5;77,1;79,7;79,8;7f
-179;REFLI NATANAEL PAKPAHAN;77,3;77,4;82,1;81,9;7f
-180;RENTINA APRILIA PANJAITAN;83;82,5;85,5;85,2;7f
-181;Rizal Renaldo Pakpahan;79,2;79,2;82,5;82,5;7f
-182;Safril Pakpahan;75,8;76,5;77,1;77,4;7f
-183;Satria Srimuliani Gultom;81,6;80,9;84,3;83,9;7f
-184;Sri Willy Dea Dongoran;82,7;82;87,2;86,7;7f
-185;Timothy Nigor Hutagaol;76,2;75,7;78,8;78,8;7f
-186;Williams Maranatha Harianja;77,1;77,5;81,7;82;7f
-187;YOSUA PARDAMEAN GULTOM;76,89;77,11;80,1;80,1;7f
-188;Yusup Rafael Pakpahan;77,7;78,4;82,3;82,2;7f
-189;ANDRA ELIAKIM PAKPAHAN;78,3;77,9;81,6;81,7;7g
-190;ARIF KRISVIN TAMBUNAN;79,8;79,7;82,3;82,4;7g
-191;Charil Olivia Pakpahan;83,4;83,3;85,7;85,2;7g
-192;Daniel Pakpahan;77,2;77,1;80,6;80,7;7g
-193;DAPIT MARTOHONAN PAKPAHAN;78;78,6;77,9;78,3;7g
-194;Delon Pakpahan;77,9;77,8;80,2;80,4;7g
-195;Dwina Greynesia Pakpahan;81,6;81,9;84,8;84,7;7g
-196;Eliezer Parhehean Pakpahan;78,3;77,9;79,7;79,8;7g
-197;Erin Ayu Putri Pakpahan;78,7;78,7;80,5;80,7;7g
-198;FAJAR HEZKIEL SIMANJUNTAK;76,1;76,4;78,3;78;7g
-199;Geral Roman Steven Sormin;78,3;78;80,9;80,7;7g
-200;Gresya Januari Gultom;76,9;77;78,9;79,1;7g
-201;Immanuel Sahala Raja Pakpahan;79,6;78,9;81,2;81,2;7g
-202;Irwansyah Gultom;77,8;78,1;78,6;78,7;7g
-203;JONATAN PAKPAHAN;72,5;72,5;0;0;7g
-204;Jovita Dame Riani Sitorus;81,3;80,5;85,1;84,7;7g
-205;Lela Sari Pakpahan;79;78,6;80,8;81;7g
-206;Marvel Pan Rahel Pakpahan;81,1;80,8;87,9;87;7g
-207;Merry Cristina Pakpahan;79,5;79,4;80,7;80,5;7g
-208;Michael Billkates Harianja;74,7;75,3;75,5;75,6;7g
-209;Nehemia Kezia Gultom;80,1;79,5;80,9;80,7;7g
-210;Olani Pajojor Gultom;82,3;82,2;84,7;84,2;7g
-211;RIEL JANFRIEDO GULTOM;83,5;84,4;84,4;84;7g
-212;RUMINI NATASYA PAKPAHAN;78,1;77,8;80,5;80,7;7g
-213;Simon Lanjut Rodaniel Sormin;81,3;81,3;81,1;81,1;7g
-214;Sofia Zefanya Gultom;80,2;79,9;83,1;82,8;7g
-215;Tiara Paulina Pakpahan;79,2;77,6;80,7;80,8;7g
-216;VALENTIN AUDINA PAKPAHAN;80,2;79,7;81,9;81,5;7g
-217;Widia Harianja;81,2;80,2;82,2;82,1;7g
-218;Andri Parulian Gultom;79;78,9;79,4;80;7h
-219;ANGELIA DERMAWANI GULTOM;80,8;80,7;82,4;82;7h
-220;Bella Rauli Siahaan;78,8;77,5;82;81,9;7h
-221;BONA RINO HATORANGAN TAMBUNAN;77,1;77,2;78,4;78,8;7h
-222;BRIVYOGA ELIUD SORMIN;80,3;80,2;82,6;82,3;7h
-223;CINDY AUDINA SIMANJUNTAK;82,8;82,5;81,9;81,8;7h
-224;Cristian Pakpahan;77,3;77,9;77;76,8;7h
-225;Dessianna Fanny Harianja;79,4;79;83,2;83,6;7h
-226;EFRAN RAMIRES PAKPAHAN;78,2;78;79,7;79,8;7h
-227;Erlan Sopian Pakpahan;78,5;78,3;80;80;7h
-228;Favian Lumbantobing;80,1;79,6;80,5;80,3;7h
-229;Gleonardi Pakpahan;76,8;77,3;79,1;79;7h
-230;JONATHAN PAKPAHAN;77,2;76,7;78,3;78,4;7h
-231;Kezya Ronauli Gultom;80,1;78,9;82,6;82,3;7h
-232;Marsinta Clara Sriyanti Situmorang;79,6;79,9;80,8;80,9;7h
-233;Mei Violencia Sormin;81,8;82,4;84,7;84,2;7h
-234;Meylita Indriani Tambunan;82,3;81,5;85,8;85,3;7h
-235;Michael Fhary Gonzales Pakpahan;79,7;79,6;80,8;80,8;7h
-236;Mulyadi Pakpahan;81,1;80,4;83,4;83,4;7h
-237;Nova Perjuani Manurung;79,4;78,9;81,3;81,3;7h
-238;Presly Perdana Putra Silitonga;78,3;78,2;77,9;78;7h
-239;Rachel Anastasya Siagian;78,7;78,4;81,4;81,3;7h
-240;Riena J Pakpahan;80,9;80,1;81,3;81,3;7h
-241;Roma Rohulna Pakpahan;80,2;79,7;81,6;81,5;7h
-242;Rupinna Tambunan;80;79,2;81,2;80,8;7h
-243;SANRO HAMONANGAN SIBURIAN;80;80,7;80,5;80,2;7h
-244;SEM FELIX PAKPAHAN;77,9;76,9;79,4;79,8;7h
-245;Sharah Marcaulina Br,Regar;79,3;78,1;80;80,1;7h
-246;TIOLENTINA TAMBUNAN;81,7;81,7;83,4;83,1;7h
-247;YEBIDA SEPTRIANI PAKPAHAN;81,3;81,3;84,4;84,3;7h
+No;Nama;Peng Sem 1;Ket Sem 1;Peng Sem 2;Ket Sem 2;Kelas Awal;Kelas Hasil
+2;Agustinus Robert Tua Tambunan;76.2;76.7;79.5;79.0;7a;7A
+3;Alisya Kirana;82.6;82.4;85.6;85.2;7a;7A
+4;Calista Anggriani Marbun;82.7;82.7;83.7;84.1;7a;7D
+5;Chiren Amanda P, Silitonga;79.9;80.2;83.1;83.1;7a;7A
+6;Dini Elisabet Dongoran;82.1;81.7;85.4;85.1;7a;7D
+7;Dolok Maruarar Pakpahan;78.9;78.4;83.6;83.4;7a;7A
+8;Epifaniya Lebora Dongoran;85.7;85.4;88.7;88.8;7a;7A
+9;Heni Sianturi;84.6;85.1;86.4;86.3;7a;7D
+10;Ipan Satria Harianja;78.8;77.8;81.9;82.4;7a;7G
+11;Irhamna Faizul Pakpahan;78.1;77.8;80.0;79.8;7a;7G
+12;Kevin Laurensius Sormin;77.8;77.4;79.7;79.8;7a;7G
+13;Manganju A,V Marbun;76.1;76.6;80.33;79.67;7a;7D
+14;Marcel Sijabat;80.5;81.1;82.2;82.1;7a;7A
+15;Mateus Martuani Panjaitan;82.9;83.0;86.4;86.2;7a;7A
+16;Mega Rias Riyani Azzahra;81.0;81.1;84.1;83.8;7a;7G
+17;MIKAEL KEVIN WESLI SORMIN;77.5;77.2;78.7;79.0;7a;7A
+18;Mike Roida Sormin;81.2;81.6;86.0;85.6;7a;7D
+19;MORA SINTIA PAKPAHAN;79.7;78.8;83.8;83.9;7a;7A
+20;Nadine Benedicta Naibaho;86.3;86.4;89.0;88.6;7a;7D
+21;Nazryl F, Tampubolon;78.2;77.9;83.0;81.9;7a;7D
+22;Novia Husna Pakpahan;79.8;79.0;82.7;82.3;7a;7G
+23;OSRA IGNASIUS GULTOM;77.4;77.0;80.9;81.0;7a;7G
+24;Paska Kristian Pakpahan;77.6;77.1;78.5;78.9;7a;7D
+25;Petrus Risandi Pakpahan;78.5;78.1;80.2;80.5;7a;7A
+26;Puput Yuni  Br, Matondang;83.3;83.5;85.4;85.6;7a;7D
+27;Ridho Efendi Pakpahan;79.5;78.7;80.3;80.3;7a;7D
+28;Ro Rezeky Simatupang;78.4;77.6;81.6;81.4;7a;7A
+29;Santa Debora Teresia Sianturi;81.3;80.5;85.4;85.4;7a;7D
+30;Teuku Robbi Alamsyah Bastari;79.3;79.2;83.4;82.6;7a;7A
+31;THERESIA ROSALINDA NDRURU;85.2;84.5;88.5;88.3;7a;7D
+32;Tiara Yosephine Sormin;80.1;79.7;82.4;82.6;7a;7G
+33;Alfredo Pakpahan;77.1;76.8;80.2;81.0;7b;7G
+34;Anugrah Harianja;75.0;75.5;78.4;79.1;7b;7D
+35;Ardi Pakpahan;80.0;80.4;82.7;83.1;7b;7A
+36;Boaz Jonathan Sormin;82.7;83.5;82.9;82.9;7b;7D
+37;Citra Dewi Panjaitan;80.0;79.7;82.9;82.6;7b;7A
+38;Dian Juniar Gultom;82.1;80.9;85.0;84.8;7b;7D
+39;Dikky Ryan Maranatah Sormin;78.3;79.8;80.6;80.3;7b;7D
+40;Doli Karunia Tambunan;79.4;79.3;81.5;81.1;7b;7A
+41;ERAWATI PAKPAHAN;81.3;80.9;84.6;85.4;7b;7D
+42;Ervin Alparis Panjaitan;79.4;80.0;81.3;82.0;7b;7D
+43;HELMAN BINSAR PAKPAHAN;77.9;77.7;81.7;81.3;7b;7D
+44;Ica Stefany Gultom;80.2;79.8;83.8;83.8;7b;7A
+45;Imelda Rosmawati Silalahi;83.2;82.5;85.3;85.0;7b;7D
+46;Kalvin Cleopatra Tambunan;79.2;79.4;82.0;82.5;7b;7G
+47;Kevin Bincar Hatuaon Pakpahan;77.0;76.1;80.9;81.1;7b;7A
+48;Kristin Debora Gultom;80.2;79.4;85.1;84.6;7b;7A
+49;Lhoisa Pakpahan;81.5;81.1;83.3;83.6;7b;7A
+50;MAGDALENA SIHOMBING;84.9;84.8;87.1;87.2;7b;7A
+51;Martha Silitonga;82.6;82.0;86.4;86.2;7b;7D
+52;Marvel Liberson Sormin;79.2;78.9;82.6;82.4;7b;7A
+53;Michel Jeisen Panjaitan;81.6;81.1;86.0;85.3;7b;7D
+54;Mikha Bunga Aulia Harianja;79.6;79.2;82.1;82.2;7b;7G
+55;Pirman Muliadi Pakpahan;75.0;75.3;77.8;77.8;7b;7G
+56;RIDO PRANSISKO SORMIN;75.8;76.4;79.7;79.5;7b;7D
+57;Rohot Reynhad Geovani Sormin;78.1;77.8;81.4;81.7;7b;7D
+58;Rosianna Gultom;79.0;79.4;82.0;81.8;7b;7D
+59;Sadrak Pakpahan;78.2;78.0;82.9;82.5;7b;7D
+60;Tumpal Paniroi Pakpahan;77.5;77.0;81.9;80.8;7b;7D
+61;Welldy Natanael Harianja;79.3;77.9;82.8;82.6;7b;7A
+62;YORA ROMIAN WIDYANATA SIMANJUNTAK;81.8;81.4;85.8;85.4;7b;7G
+63;Zevanya Pakpahan;75.8;75.6;78.5;77.5;7b;7G
+64;Adika Rivaldo Salomo Harianja;75.0;74.8;77.4;77.5;7c;7G
+65;Andri Sigiron Pakpahan;76.8;76.9;81.6;81.9;7c;7A
+66;Anjai P, Tan;80.6;79.9;84.4;84.7;7c;7G
+67;Beniqno Harianja;77.8;77.9;79.6;79.9;7c;7D
+68;Chrystin Natalia Sormin;80.3;79.5;82.5;82.6;7c;7G
+69;CRISTIAN GULTOM;77.1;76.6;80.7;80.4;7c;7G
+70;Cristmayer BH, Pakpahan;76.5;76.0;79.3;80.3;7c;7G
+71;Deni Chandra Silitonga;76.1;76.1;78.0;78.0;7c;7A
+72;Elisa Gultom;80.3;79.7;84.0;84.4;7c;7D
+73;Gabriel Gamel Khan Sormin;80.0;80.2;81.8;81.8;7c;7G
+74;GIDEON EFAPRAS PAKPAHAN;76.6;76.5;79.5;79.8;7c;7A
+75;Gloria Pakpahan;79.5;78.6;85.2;85.8;7c;7A
+76;Ira Olivia Purba;85.4;85.4;88.8;89.0;7c;7A
+77;Jelita Pakpahan;85.5;85.0;87.8;87.7;7c;7A
+78;JERICO SIMAMORA;81.8;80.4;86.3;86.3;7c;7A
+79;Juan Tigor Silitonga;81.11;80.44;85.1;85.0;7c;7D
+80;JULIANDA DESWITA PAKPAHAN;77.9;78.0;82.5;83.2;7c;7D
+81;Kesya Cecilia Jahsya Harianja;77.8;77.0;81.9;82.1;7c;7D
+82;Krisli Porsian Sirait;79.6;79.8;81.9;82.2;7c;7E
+83;Lamria Nurmawati Simatupang;80.3;79.9;83.5;84.3;7c;7E
+84;Laura Virgo Oktavia Sormin;79.0;78.1;82.8;82.6;7c;7B
+85;Miracle Pakpahan;81.9;81.2;86.1;86.7;7c;7G
+86;PATTAS EBRIAN TAMBUNAN;77.1;76.7;81.4;82.0;7c;7B
+87;Pildes Baim Sormin;82.3;81.6;87.5;87.0;7c;7B
+88;Piona Miranda Pakpahan;80.6;79.0;86.2;86.2;7c;7B
+89;Putri Keyza Dongoran;83.2;82.1;86.3;86.5;7c;7G
+90;Renghart Harianja;77.9;76.5;80.1;80.4;7c;7E
+91;Santi Rouli Sormin;77.8;77.3;81.7;81.8;7c;7B
+92;Talitha Fides Pakpahan;80.5;80.2;84.3;84.9;7c;7B
+93;Tasya Novita Pakpahan;80.4;80.3;85.0;85.3;7c;7B
+94;Yosi Wiranda Silaban;80.9;79.6;85.9;86.2;7c;7E
+95;ZESSEN ASIDO BARTHOLDY GULTOM;79.4;78.6;83.1;83.0;7c;7G
+96;Aditya Sormin;79.1;79.4;79.1;79.4;7d;7G
+97;ALFREDO KRISTIAN SAPUTRA TAMBA;77.7;77.6;77.7;77.6;7d;7E
+98;AMELIA INDAH PAKPAHAN;80.4;79.4;80.4;79.4;7d;7B
+99;Andrean Agustinus Gultom;83.1;83.5;83.1;83.5;7d;7E
+100;Armin Dita Panjaitan;80.5;80.1;80.5;80.1;7d;7E
+101;Calista Pakpahan;81.9;82.1;81.9;82.1;7d;7E
+102;Dela Tiona Pakpahan;82.0;81.2;82.0;81.2;7d;7E
+103;Dewi Fransiska Lase;81.7;80.9;81.7;80.9;7d;7G
+104;Ekaputra Ramdani Prasetyo;78.7;78.2;78.7;78.2;7d;7B
+105;Erifa Yosepin Nainggolan;83.0;81.8;83.0;81.8;7d;7G
+106;Fandri Susanto Pakpahan;79.3;78.6;79.3;78.6;7d;7E
+107;Fiona Pakpahan;80.3;80.1;80.3;80.1;7d;7E
+108;GRANITA PAKPAHAN;81.2;80.1;81.2;80.1;7d;7E
+109;Heldiora Pakpahan;80.5;80.0;80.5;80.0;7d;7E
+110;Indra Sugandi Sormin;80.5;81.0;80.5;81.0;7d;7E
+111;Jesica Natasya Sormin;80.9;80.2;80.9;80.2;7d;7E
+112;JOEL AVENTRI GULTOM;80.9;80.0;80.9;80.0;7d;7G
+113;Jona Daut Sormin;78.1;78.5;78.1;78.5;7d;7G
+114;Lenta Gultom;78.6;77.9;78.6;77.9;7d;7G
+115;MUSTIKA PAKPAHAN;78.3;78.7;78.3;78.7;7d;7G
+116;Noel Ricardo Gultom;77.5;77.4;77.5;77.4;7d;7E
+117;RANNY PAKPAHAN;80.3;80.9;80.3;80.9;7d;7E
+118;Revi Sintia Pakpahan;81.4;81.4;81.4;81.4;7d;7E
+119;Rika Ervina Sormin;81.0;80.7;81.0;80.7;7d;7G
+120;Rini Rahayu Enjelina Sihombing;79.6;78.9;79.6;78.9;7d;7G
+121;Rohani Limbong;77.3;77.9;77.3;77.9;7d;7G
+122;Samario Sianturi;78.8;78.9;78.8;78.9;7d;7H
+123;Siska Septiani Harianja;79.5;79.3;79.5;79.3;7d;7H
+124;Sonny Pantun Saputra Harianja;75.3;76.0;75.3;76.0;7d;7H
+125;Sriniati Elisabeth Harianja;75.2;75.8;75.2;75.8;7d;7H
+126;Tabita Pretti Pakpahan;78.3;78.7;78.3;78.7;7d;7H
+127;UCCUK GULTOM;76.33;75.67;76.33;75.67;7d;7B
+128;ANA LAURA PAKPAHAN;81.3;81.4;85.6;85.5;7e;7B
+129;Angelica Novita Pauline Tambunan;81.5;81.7;85.8;85.7;7e;7B
+130;Beatrice Rogate Harianja;85.5;85.4;89.0;88.6;7e;7B
+131;Deby E,L Tambunan;86.1;86.0;90.3;90.0;7e;7B
+132;Dela Elisabet Tanjung;82.3;82.4;86.7;86.6;7e;7B
+133;Elisabet Kristiani Harianja;85.3;85.7;90.9;90.7;7e;7B
+134;GRACIA FANISA INDRI TAMBUNAN;81.2;81.1;85.7;85.4;7e;7B
+135;Gresya Rosindah Pakpahan;82.2;83.1;87.3;87.2;7e;7B
+136;Hesekiel Tambunan;81.4;81.8;84.4;84.4;7e;7B
+137;Iernest Margareth Pakpahan;83.5;84.4;89.7;89.6;7e;7B
+138;Jeremia Mardongan Nababan;80.0;80.5;84.9;85.1;7e;7B
+139;Jeremia Pebryan Pakpahan;81.9;81.8;85.6;85.6;7e;7B
+140;Joshua Nigel Hutagaol;83.7;84.3;87.2;87.0;7e;7E
+141;Kristin Aprilaresa Harianja;80.1;80.1;83.6;83.5;7e;7B
+142;LIANA VERONIKA SIJABAT;84.4;84.8;87.1;86.9;7e;7B
+143;Maria Denyati Gultom;82.0;81.5;85.4;85.1;7e;7B
+144;Melva Simanungkalit;83.2;83.8;86.5;86.4;7e;7B
+145;Nadia Gultom;83.9;84.9;86.5;86.4;7e;7B
+146;NADYAH TAMBUNAN;83.7;84.0;87.0;86.9;7e;7B
+147;Necia F,Sihombing;85.0;84.9;87.6;87.2;7e;7C
+148;Neysa Evelin Silitonga;85.1;85.1;86.2;85.9;7e;7C
+149;Priko Bagus Siregar;84.1;85.0;90.2;90.1;7e;7C
+150;Rafael Benitez Gultom;83.3;84.3;85.8;85.4;7e;7C
+151;Ramses Gultom;81.2;81.7;84.1;84.2;7e;7C
+152;Rejeki Simanjuntak;85.4;85.3;86.1;86.0;7e;7C
+153;Repan Immanuel Silitonga;83.1;83.7;86.8;86.9;7e;7C
+154;Rifka Agatha Harianja;82.6;83.7;86.2;86.2;7e;7C
+155;Romian Rhinjani Harianja;80.5;81.2;84.0;83.8;7e;7C
+156;SARAH GULTOM;81.9;82.7;84.9;85.1;7e;7C
+157;Yohana Isabela Tambunan;83.2;83.5;85.5;85.4;7e;7C
+158;Yosua Elfrendy Tobing;80.6;81.1;84.8;85.0;7e;7E
+159;Agnes Monica Pakpahan;78.8;78.3;83.7;83.6;7f;7E
+160;ANDRE PARULIAN HUTAJULU;78.4;78.0;82.0;82.0;7f;7H
+161;ARIPAL PAKPAHAN;76.6;76.5;80.6;80.7;7f;7E
+162;Armina Devi Panjaitan;79.5;79.0;82.8;82.8;7f;7H
+163;Aron Dava Panjaitan;78.3;78.0;79.0;79.0;7f;7C
+164;Claralita Harianja;80.6;80.2;84.6;84.5;7f;7E
+165;Devi Andrianti Sormin;79.3;79.1;83.7;83.5;7f;7H
+166;Doan Ebenezer Pakpahan;75.8;75.7;79.6;79.8;7f;7E
+167;Eduardo Hot Tua Pasaribu;80.4;79.6;84.1;84.1;7f;7E
+168;Exapandi Maruli Tua Gultom;77.9;77.5;82.2;82.2;7f;7E
+169;Franeka Sofiana Pakpahan;80.1;79.8;83.6;83.6;7f;7C
+170;Gihon Derrik Harianja;81.1;81.2;84.9;84.9;7f;7E
+171;Glen Abel Pakpahan;77.4;77.2;81.3;81.4;7f;7H
+172;ILDA NIAWATI HASUGIAN;76.5;77.1;76.7;76.7;7f;7E
+173;INDAH CITRA VALENSYA PAKPAHAN;78.8;78.6;84.5;84.4;7f;7H
+174;Klinton Silitonga;75.1;75.1;77.0;76.9;7f;7E
+175;Marolop Tua Silitonga;78.6;78.7;83.8;83.8;7f;7C
+176;MENTARI AGUSTINA H, SIMANJUNTAK;79.5;80.1;85.6;85.5;7f;7C
+177;Natalia Siregar;81.5;80.9;86.3;86.2;7f;7H
+178;Nikolas Maloni Sormin;75.5;77.1;79.7;79.8;7f;7E
+179;REFLI NATANAEL PAKPAHAN;77.3;77.4;82.1;81.9;7f;7C
+180;RENTINA APRILIA PANJAITAN;83.0;82.5;85.5;85.2;7f;7E
+181;Rizal Renaldo Pakpahan;79.2;79.2;82.5;82.5;7f;7H
+182;Safril Pakpahan;75.8;76.5;77.1;77.4;7f;7C
+183;Satria Srimuliani Gultom;81.6;80.9;84.3;83.9;7f;7C
+184;Sri Willy Dea Dongoran;82.7;82.0;87.2;86.7;7f;7H
+185;Timothy Nigor Hutagaol;76.2;75.7;78.8;78.8;7f;7E
+186;Williams Maranatha Harianja;77.1;77.5;81.7;82.0;7f;7H
+187;YOSUA PARDAMEAN GULTOM;76.89;77.11;80.1;80.1;7f;7F
+188;Yusup Rafael Pakpahan;77.7;78.4;82.3;82.2;7f;7F
+189;ANDRA ELIAKIM PAKPAHAN;78.3;77.9;81.6;81.7;7g;7F
+190;ARIF KRISVIN TAMBUNAN;79.8;79.7;82.3;82.4;7g;7C
+191;Charil Olivia Pakpahan;83.4;83.3;85.7;85.2;7g;7H
+192;Daniel Pakpahan;77.2;77.1;80.6;80.7;7g;7H
+193;DAPIT MARTOHONAN PAKPAHAN;78.0;78.6;77.9;78.3;7g;7H
+194;Delon Pakpahan;77.9;77.8;80.2;80.4;7g;7C
+195;Dwina Greynesia Pakpahan;81.6;81.9;84.8;84.7;7g;7H
+196;Eliezer Parhehean Pakpahan;78.3;77.9;79.7;79.8;7g;7F
+197;Erin Ayu Putri Pakpahan;78.7;78.7;80.5;80.7;7g;7H
+198;FAJAR HEZKIEL SIMANJUNTAK;76.1;76.4;78.3;78.0;7g;7F
+199;Geral Roman Steven Sormin;78.3;78.0;80.9;80.7;7g;7H
+200;Gresya Januari Gultom;76.9;77.0;78.9;79.1;7g;7F
+201;Immanuel Sahala Raja Pakpahan;79.6;78.9;81.2;81.2;7g;7H
+202;Irwansyah Gultom;77.8;78.1;78.6;78.7;7g;7H
+203;JONATAN PAKPAHAN;72.5;72.5;0.0;0.0;7g;7C
+204;Jovita Dame Riani Sitorus;81.3;80.5;85.1;84.7;7g;7F
+205;Lela Sari Pakpahan;79.0;78.6;80.8;81.0;7g;7C
+206;Marvel Pan Rahel Pakpahan;81.1;80.8;87.9;87.0;7g;7F
+207;Merry Cristina Pakpahan;79.5;79.4;80.7;80.5;7g;7H
+208;Michael Billkates Harianja;74.7;75.3;75.5;75.6;7g;7F
+209;Nehemia Kezia Gultom;80.1;79.5;80.9;80.7;7g;7C
+210;Olani Pajojor Gultom;82.3;82.2;84.7;84.2;7g;7C
+211;RIEL JANFRIEDO GULTOM;83.5;84.4;84.4;84.0;7g;7H
+212;RUMINI NATASYA PAKPAHAN;78.1;77.8;80.5;80.7;7g;7F
+213;Simon Lanjut Rodaniel Sormin;81.3;81.3;81.1;81.1;7g;7F
+214;Sofia Zefanya Gultom;80.2;79.9;83.1;82.8;7g;7F
+215;Tiara Paulina Pakpahan;79.2;77.6;80.7;80.8;7g;7F
+216;VALENTIN AUDINA PAKPAHAN;80.2;79.7;81.9;81.5;7g;7F
+217;Widia Harianja;81.2;80.2;82.2;82.1;7g;7H
+218;Andri Parulian Gultom;79.0;78.9;79.4;80.0;7h;7F
+219;ANGELIA DERMAWANI GULTOM;80.8;80.7;82.4;82.0;7h;7F
+220;Bella Rauli Siahaan;78.8;77.5;82.0;81.9;7h;7H
+221;BONA RINO HATORANGAN TAMBUNAN;77.1;77.2;78.4;78.8;7h;7F
+222;BRIVYOGA ELIUD SORMIN;80.3;80.2;82.6;82.3;7h;7F
+223;CINDY AUDINA SIMANJUNTAK;82.8;82.5;81.9;81.8;7h;7H
+224;Cristian Pakpahan;77.3;77.9;77.0;76.8;7h;7F
+225;Dessianna Fanny Harianja;79.4;79.0;83.2;83.6;7h;7H
+226;EFRAN RAMIRES PAKPAHAN;78.2;78.0;79.7;79.8;7h;7H
+227;Erlan Sopian Pakpahan;78.5;78.3;80.0;80.0;7h;7F
+228;Favian Lumbantobing;80.1;79.6;80.5;80.3;7h;7H
+229;Gleonardi Pakpahan;76.8;77.3;79.1;79.0;7h;7H
+230;JONATHAN PAKPAHAN;77.2;76.7;78.3;78.4;7h;7F
+231;Kezya Ronauli Gultom;80.1;78.9;82.6;82.3;7h;7F
+232;Marsinta Clara Sriyanti Situmorang;79.6;79.9;80.8;80.9;7h;7C
+233;Mei Violencia Sormin;81.8;82.4;84.7;84.2;7h;7C
+234;Meylita Indriani Tambunan;82.3;81.5;85.8;85.3;7h;7F
+235;Michael Fhary Gonzales Pakpahan;79.7;79.6;80.8;80.8;7h;7F
+236;Mulyadi Pakpahan;81.1;80.4;83.4;83.4;7h;7F
+237;Nova Perjuani Manurung;79.4;78.9;81.3;81.3;7h;7H
+238;Presly Perdana Putra Silitonga;78.3;78.2;77.9;78.0;7h;7F
+239;Rachel Anastasya Siagian;78.7;78.4;81.4;81.3;7h;7F
+240;Riena J Pakpahan;80.9;80.1;81.3;81.3;7h;7F
+241;Roma Rohulna Pakpahan;80.2;79.7;81.6;81.5;7h;7F
+242;Rupinna Tambunan;80.0;79.2;81.2;80.8;7h;7F
+243;SANRO HAMONANGAN SIBURIAN;80.0;80.7;80.5;80.2;7h;7H
+244;SEM FELIX PAKPAHAN;77.9;76.9;79.4;79.8;7h;7F
+245;Sharah Marcaulina Br,Regar;79.3;78.1;80.0;80.1;7h;7C
+246;TIOLENTINA TAMBUNAN;81.7;81.7;83.4;83.1;7h;7C
+247;YEBIDA SEPTRIANI PAKPAHAN;81.3;81.3;84.4;84.3;7h;
