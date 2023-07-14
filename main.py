@@ -19,6 +19,8 @@ app.config['UPLOAD_FOLDER_DATA_NILAI'] = UPLOAD_FOLDER_DATA_NILAI
 UPLOAD_FOLDER_DATA_SISWA = 'static/uploads/dataSiswa'
 app.config['UPLOAD_FOLDER_DATA_SISWA'] = UPLOAD_FOLDER_DATA_SISWA
 
+UPLOAD_FOLDER_DATA_CLUSTERING = 'static/uploads/dataClustering'
+app.config['UPLOAD_FOLDER_DATA_CLUSTERING'] = UPLOAD_FOLDER_DATA_CLUSTERING
 
 @app.route('/')
 def dashboard():
@@ -95,7 +97,6 @@ def datasiswa():
 @app.route('/datanilai')
 def datanilai():
     return render_template('datanilai.html')
-
 
 @app.route('/file_upload-data-nilai', methods=['POST'])
 def upload_file():
@@ -206,6 +207,128 @@ def parseCSVDatasiswa(filePath):
              cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
              cursor.execute(sql, value)
              mysql.connection.commit()
+             
+
+@app.route('/file_upload-data-clustering', methods=['POST'])
+def upload_file_data_clustering():
+    uploaded_file_data_clustering = request.files['file']
+    if upload_file_data_clustering.filename != '':
+        file_path_data_clustering = os.path.join(app.config['UPLOAD_FOLDER_DATA_CLUSTERING'], upload_file_data_clustering.filename)
+        upload_file_data_clustering.save(file_path_data_clustering)
+        parseCSVDataClustering(file_path_data_clustering)
+    return redirect(url_for('home'))
+
+def parseCSVDataClustering(filePath):
+    data = pd.read_csv(filePath, sep=';')
+    data = data.iloc[1:]
+    
+    # Replace commas (,) with periods (.) and convert to float
+    data['Peng Sem 1'] = data['Peng Sem 1'].str.replace(',', '.').astype(float)
+    data['Peng Sem 2'] = data['Peng Sem 2'].str.replace(',', '.').astype(float)
+    data['Ket Sem 1'] = data['Ket Sem 1'].str.replace(',', '.').astype(float)
+    data['Ket Sem 2'] = data['Ket Sem 2'].str.replace(',', '.').astype(float)
+
+    # Extract attributes from the data
+    attributes = ['Nama', 'Peng Sem 1', 'Ket Sem 1', 'Peng Sem 2', 'Ket Sem 2']
+    X = data[attributes].values
+    
+    # Perform pairwise distance calculation
+    distances = pairwise_distances(X[:, 1:], metric='euclidean')
+
+    # Function to calculate the total dissimilarity for a given medoid index
+    def total_dissimilarity(index, medoids):
+        cluster_indices = np.where(medoids)[0]
+        cluster_points = X[cluster_indices]
+        cluster_distances = distances[cluster_indices][:, cluster_indices]
+        return sum(cluster_distances)
+
+    # Function to find the best medoid with the lowest dissimilarity
+    def find_best_medoid(cluster_points, cluster_indices):
+        best_medoid = None
+        best_dissimilarity = float('inf')
+        for i in range(len(cluster_points)):
+            dissimilarity = total_dissimilarity(i, cluster_indices)
+            if np.all(dissimilarity < best_dissimilarity):
+                best_medoid = cluster_indices[i]  # Update with cluster index
+                best_dissimilarity = dissimilarity
+        return best_medoid, best_dissimilarity
+
+    # Perform K-Medoids clustering
+    k = 3  # Number of clusters
+    medoids_indices = KMedoids(n_clusters=k, random_state=0).fit_predict(distances)
+
+    # Find the best medoid for each cluster
+    medoids = []
+    for cluster_id in range(k):
+        cluster_indices = np.where(medoids_indices == cluster_id)[0]
+        cluster_points = X[cluster_indices]
+        medoid_index, _ = find_best_medoid(cluster_points, cluster_indices)
+        medoids.append(medoid_index)
+
+    # Retrieve all attributes from data
+    all_attributes = X
+
+    # Create a new DataFrame with cluster assignments
+    cluster_data = pd.DataFrame(all_attributes, columns=attributes)
+    cluster_data['Cluster'] = medoids_indices + 1
+
+    # Divide clusters
+    cluster_counts = cluster_data['Cluster'].value_counts()
+
+    # Divide cluster 1 into a, b, c
+    cluster_1_data = cluster_data[cluster_data['Cluster'] == 1]
+    cluster_1_divided = np.array_split(cluster_1_data, 3)
+    a, b, c = cluster_1_divided
+
+    # Add class labels for cluster 1 divisions
+    a['Kelas Hasil'] = '7A'
+    b['Kelas Hasil'] = '7B'
+    c['Kelas Hasil'] = '7C'
+
+    # Divide cluster 2 into d, e, f
+    cluster_2_data = cluster_data[cluster_data['Cluster'] == 2]
+    cluster_2_divided = np.array_split(cluster_2_data, 3)
+    d, e, f = cluster_2_divided
+
+    # Add class labels for cluster 2 divisions
+    d['Kelas Hasil'] = '7D'
+    e['Kelas Hasil'] = '7E'
+    f['Kelas Hasil'] = '7F'
+
+    # Divide cluster 3 into g, h
+    cluster_3_data = cluster_data[cluster_data['Cluster'] == 3]
+    cluster_3_divided = np.array_split(cluster_3_data, 2)
+    g, h = cluster_3_divided
+
+    # Add class labels for cluster 3 divisions
+    g['Kelas Hasil'] = '7G'
+    h['Kelas Hasil'] = '7H'
+
+    # Save the divided clusters to a single CSV file
+    output_data = pd.concat([a, b, c, d, e, f, g, h], axis=0)
+    # Append 'Kelas Hasil' column to the original data
+    data['Kelas Hasil'] = output_data['Kelas Hasil']
+
+    for _, row in output_data.iterrows():
+        nama = row['Nama']
+        peng_sem_1 = row['Peng Sem 1']
+        peng_sem_2 = row['Peng Sem 2']
+        ket_sem_1 = row['Ket Sem 1']
+        ket_sem_2 = row['Ket Sem 2']
+        kelas_awal = row['Kelas Awal']
+        kelas_hasil = row['Kelas Hasil']
+        
+        query = "INSERT INTO cluster (nama, peng_sem_1, peng_sem_2, ket_sem_1, ket_sem_2, kelas_awal, kelas_hasil) " \
+                "VALUES (NULL, % s, % s, % s, % s, % s, % s, % s)"
+        
+        values = (nama, peng_sem_1, peng_sem_2, ket_sem_1, ket_sem_2, kelas_awal, kelas_hasil)
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute(sql, values)
+        mysql.connection.commit()
+
+@app.route('/clustering')
+def clusteringKelas():
+    return render_template('clusteringkelas.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
