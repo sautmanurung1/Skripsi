@@ -8,7 +8,10 @@ import datetime as dt
 import csv
 import os
 from os.path import join, dirname, realpath
+from sklearn.metrics import pairwise_distances
+from sklearn_extra.cluster import KMedoids
 import pandas as pd
+import numpy as np
 
 UPLOAD_FOLDER_DATA_NILAI = 'static/uploads/dataNilai'
 app.config['UPLOAD_FOLDER_DATA_NILAI'] = UPLOAD_FOLDER_DATA_NILAI
@@ -92,11 +95,6 @@ def datasiswa():
 @app.route('/datanilai')
 def datanilai():
     return render_template('datanilai.html')
-
-
-@app.route('/clustering')
-def clusteringkelas():
-    return render_template('clusteringkelas.html')
 
 
 @app.route('/file_upload-data-nilai', methods=['POST'])
@@ -208,6 +206,55 @@ def parseCSVDatasiswa(filePath):
              cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
              cursor.execute(sql, value)
              mysql.connection.commit()
+
+def load_data_K_Medoid(filePath):
+    data = pd.read_csv(filePath, sep=';')
+    data = data.iloc[1:]
+    data = data.dropna()
+    data['Peng Sem 1'] = data['Peng Sem 1'].str.replace(',', '.').astype(float)
+    data['Ket Sem 2'] = data['Ket Sem 2'].str.replace(',', '.').astype(float)
+    data['Peng Sem 1'] = data['Peng Sem 1'].str.replace(',', '.').astype(float)
+    data['Ket Sem 2'] = data['Ket Sem 2'].str.replace(',', '.').astype(float)
+    return data
+
+def perform_clustering(X, k):
+    distances = pairwise_distances(X[:, 1:5], metric='euclidean')
+    medoids_indices = KMedoids(n_clusters=k, random_state=0).fit_predict(distances)
+    return medoids_indices
+
+def total_dissimilarity(index, medoids, X, distances):
+    cluster_indices = np.where(medoids)[0]
+    cluster_points = X[cluster_indices]
+    cluster_distances = distances[cluster_indices][:, cluster_indices]
+    return sum(cluster_distances)
+
+def find_best_medoid(cluster_points, cluster_indices, medoids, X, distances):
+    best_medoid = None
+    best_dissimilarity = float('inf')
+    for i in range(len(cluster_points)):
+        dissimilarity = total_dissimilarity(i, medoids, X, distances)
+        if np.all(dissimilarity < best_dissimilarity):
+            best_medoid = cluster_indices[i]
+            best_dissimilarity = dissimilarity
+    return best_medoid, best_dissimilarity
+
+def update_new_class(data, all_attributes, medoids_indices, medoids):
+    cluster_to_class = {
+        0: '7a',
+        1: '7b',
+        2: '7c',
+        3: '7d',
+        4: '7e',
+        5: '7f',
+        6: '7g'
+    }
+    data['Kelas Baru'] = ''
+    for i, row in enumerate(all_attributes):
+        cluster_assignment = medoids_indices[i]
+        new_class = cluster_to_class[cluster_assignment]
+        data.loc[i, 'Kelas Baru'] = new_class
+    return data
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
