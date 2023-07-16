@@ -1,6 +1,6 @@
 from app import app
 from db_config import mysql
-from flask import Flask, render_template, url_for, redirect, request, session, jsonify
+from flask import Flask, render_template, url_for, redirect, request, session, jsonify, make_response
 from werkzeug.security import check_password_hash, generate_password_hash
 import MySQLdb.cursors
 import re
@@ -13,6 +13,9 @@ from sklearn_extra.cluster import KMedoids
 import pandas as pd
 import numpy as np
 import ast
+from fpdf import FPDF,HTMLMixin
+import html
+import io
 
 UPLOAD_FOLDER_DATA_NILAI = 'static/uploads/dataNilai'
 app.config['UPLOAD_FOLDER_DATA_NILAI'] = UPLOAD_FOLDER_DATA_NILAI
@@ -352,6 +355,82 @@ def fetch_data_clustering():
         }
         data_list.append(data_dict)
     return jsonify(data_list)
+
+@app.route('/generate_pdf', methods=['GET'])
+def generate_pdf():
+    try:
+        # Fetch the data using the '/fetch_data-clustering' route
+        response = app.test_client().get('/fetch_data-clustering')
+        data = response.get_json()
+
+        # Create a custom PDF class that extends FPDF and includes the HTMLMixin
+        class PDF(FPDF, HTMLMixin):
+            pass
+
+        # Create a new PDF document
+        pdf = PDF()
+
+        # Generate the content of the PDF
+        pdf.add_page()
+
+        # Set the font style and size
+        pdf.set_font('Arial', '', 12)
+
+        # Create the table headers
+        table_headers = ['No', 'Nama', 'Cluster', 'Kelas Awal', 'Kelas Hasil']
+        table_data = []
+        for i, row in enumerate(data):
+            row_data = [
+                str(i + 1),
+                html.escape(row['nama']),
+                html.escape(row['cluster']),
+                html.escape(row['kelas_awal']),
+                html.escape(row['kelas_akhir'])
+            ]
+            table_data.append(row_data)
+
+        # Write the HTML table structure to the PDF
+        pdf.set_auto_page_break(auto=True, margin=15)
+        pdf.write_html(render_template('table_template.html', table_headers=table_headers, table_data=table_data))
+
+        # Create a response with PDF as attachment
+        response = make_response(pdf.output())
+        response.headers['Content-Type'] = 'application/pdf'
+        response.headers['Content-Disposition'] = 'attachment; filename=generated_pdf.pdf'
+
+        return response
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/generate_csv')
+def generate_csv():
+    # Fetch the data using the '/fetch_data-clustering' route
+    response = app.test_client().get('/fetch_data-clustering')
+    data = response.get_json()
+    # Rearrange the keys order in the response data
+    reordered_data = [{key: item[key] for key in ['nama', 'cluster', 'kelas_awal', 'kelas_akhir']} for item in data]
+    # Create a response object with CSV content type
+    response = make_response('')
+    response.headers['Content-Disposition'] = 'attachment; filename=generated_data.csv'
+    response.headers['Content-Type'] = 'text/csv'
+
+    # Create an in-memory file-like object
+    csv_data = io.StringIO()
+
+    # Define the CSV header
+    header = ['nama', 'cluster', 'kelas_awal', 'kelas_akhir']
+
+    # Create a CSV writer and write the header to the in-memory file-like object
+    writer = csv.DictWriter(csv_data, fieldnames=header)
+    writer.writeheader()
+
+    # Write the data to the in-memory file-like object
+    writer.writerows(reordered_data)
+
+    # Set the value of the response to the contents of the in-memory file-like object
+    response.data = csv_data.getvalue()
+
+    return response 
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

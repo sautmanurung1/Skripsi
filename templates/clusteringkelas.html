@@ -59,14 +59,22 @@
           <th scope="col">Kelas Hasil</th>
         </tr>
       </thead>
-      <tbody id="resultBody">
-        <!-- Hasil perhitungan K-Medoids akan ditampilkan di sini -->
+       <tbody id="resultBody">
+        {% for row in data %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ row.nama }}</td>
+          <td>{{ row.cluster }}</td>
+          <td>{{ row.kelas_awal }}</td>
+          <td>{{ row.kelas_akhir }}</td>
+        </tr>
+        {% endfor %}
       </tbody>
     </table>
-    <button type="button" class="btn btn-success" id="exportCsvBtn">Export CSV</button>
-    <button type="button" class="btn btn-success" id="exportPdfBtn">
+    <a href="/generate_csv" class="btn btn-success" id="exportCsvBtn">CSV</a>
+    <a href="/generate_pdf" class="btn btn-success" id="exportPdfBtn">
       <i class="fas fa-file-pdf"></i> PDF
-    </button>
+    </a>
   </div>
 </div>
 
@@ -102,6 +110,6 @@
         });
       })
       .catch(error => console.error(error));
-  </script
+</script>
 </body>
 </html>
