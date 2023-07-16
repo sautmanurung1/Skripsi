@@ -5941,7 +5941,7 @@ var ScrollSpy = function ($$$1) {
 
       this._clear();
 
-      var queries = this._selector ; // eslint-disable-next-line arrow-body-style
+      var queries = this._selector.split(','); // eslint-disable-next-line arrow-body-style
 
 
       queries = queries.map(function (selector) {

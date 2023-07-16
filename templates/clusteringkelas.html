@@ -3,36 +3,105 @@
 <head>
   <title>Penentuan Kelas Unggulan</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/clusteringkelas/bootstrap/css/bootstrap.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/clusteringkelas/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for ('static', filename='css/clusteringkelas/style.css') }}">
+  <script src="{{ url_for('static', filename='css/clusteringkelas/fontawesome/js/all.js') }}"></script>
 </head>
 <body>
-  <div class="container">
-    <h2>Penentuan Kelas Unggulan</h2>
-    <form id="inputForm" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="csvFile">Unggah File CSV:</label>
-        <input type="file" class="form-control-file" id="csvFile" accept=".csv">
-      </div>
-      <button type="submit" class="btn btn-primary">Proses</button>
-    </form>
-    <div id="result" class="mt-4">
-      <h4>Hasil Penentuan Kelas Unggulan:</h4>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Siswa</th>
-            <th scope="col">Kelas Awal</th>
-            <th scope="col">Kelas Hasil</th>
-          </tr>
-        </thead>
-        <tbody id="resultBody">
-          <!-- Hasil penentuan kelas unggulan akan ditampilkan di sini -->
-        </tbody>
-      </table>
-      <button type="button" class="btn btn-success" id="exportBtn">Export Hasil</button>
+  <main>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fa fa-arrow-right" id="open"></i>
+    </label>
+    <div class="sidebar">
+        <div class="top">
+            SMPN1 PANGARIBUAN
+            <img src="{{ url_for('static', filename='css/clusteringkelas/image/Logo.png') }}" alt="SMP N 1 PANGARIBUAN">
+        </div>
+        <ul>
+            <li><a class="#" href="/menu"><i class="fa fa-house"></i> Dashboard</a></li>
+            <li><a class="#" href="/datasiswa"><i class="fa fa-children"></i> Data Siswa</a></li>
+            <li><a class="#" href="/datanilai"><i class="fa fa-square-poll-horizontal"></i> Data Nilai</a></li>
+            <li><a class="#" href="/clustering"><i class="fa fa-square-poll-horizontal"></i> K-Medoids</a></li>
+            <li><a class="#" href="#"><i class="fa fa-user"></i> User</a></li>
+            <li><a class="#" href="/logout"><i class="fa fa-right-from-bracket"></i> Logout</a></li>
+        </ul>
     </div>
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="search">
+                    <input type="text" placeholder="Pencarian..">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="container1">
+  <h2>Hasil Penentuan Kelas</h2>
+  <form id="inputForm" enctype="multipart/form-data" action="/file_upload-data-clustering" method="POST">
+    <div class="form-group">
+      <label for="csvFile">Unggah File CSV:</label>
+      <input type="file" name="file" accept=".csv" id="csv" class="form-control-file" />
+    </div>
+    <button type="submit" class="btn btn-primary">Proses</button>
+  </form>
+  <div id="result" class="mt-4">
+    <h4>Hasil Perhitungan:</h4>
+    <table id="csvTable" class="table">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Nama</th>
+          <th scope="col">Cluster</th>
+          <th scope="col">Kelas awal</th>
+          <th scope="col">Kelas Hasil</th>
+        </tr>
+      </thead>
+      <tbody id="resultBody">
+        <!-- Hasil perhitungan K-Medoids akan ditampilkan di sini -->
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-success" id="exportCsvBtn">Export CSV</button>
+    <button type="button" class="btn btn-success" id="exportPdfBtn">
+      <i class="fas fa-file-pdf"></i> PDF
+    </button>
   </div>
+</div>
 
-  <script src="{{ url_for('static', filename='css/clusteringkelas/script.js') }}"></script>
+<script src="{{ url_for('static', filename='css/clusteringkelas/script.js') }}"></script>
+<script>
+    // JavaScript code to generate table rows dynamically
+    fetch('/fetch_data-clustering') // Assuming you have a route to fetch data from the database
+      .then(response => response.json())
+      .then(data => {
+        const tableBody = document.querySelector('#csvTable tbody');
+        let rowNumber = 1;
+        data.forEach(row => {
+          const newRow = document.createElement('tr');
+          const rowNumberCell = document.createElement('td');
+          rowNumberCell.textContent = rowNumber;
+          const nameCell = document.createElement('td');
+          nameCell.textContent = row.nama;
+          const ClusterCell = document.createElement('td');
+          ClusterCell.textContent = row.cluster;
+          const KelasAwalCell = document.createElement('td');
+          KelasAwalCell.textContent = row.kelas_awal;
+          const KelasAkhirCell = document.createElement('td');
+          KelasAkhirCell.textContent = row.kelas_akhir;
+          
+          newRow.appendChild(rowNumberCell)
+          newRow.appendChild(nameCell);
+          newRow.appendChild(ClusterCell);
+          newRow.appendChild(KelasAwalCell);
+          newRow.appendChild(KelasAkhirCell);
+          tableBody.appendChild(newRow);
+          
+          rowNumber++;
+        });
+      })
+      .catch(error => console.error(error));
+  </script
 </body>
 </html>

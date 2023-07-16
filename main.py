@@ -12,6 +12,7 @@ from sklearn.metrics import pairwise_distances
 from sklearn_extra.cluster import KMedoids
 import pandas as pd
 import numpy as np
+import ast
 
 UPLOAD_FOLDER_DATA_NILAI = 'static/uploads/dataNilai'
 app.config['UPLOAD_FOLDER_DATA_NILAI'] = UPLOAD_FOLDER_DATA_NILAI
@@ -76,7 +77,7 @@ def register():
     return render_template('register.html')
 
 
-@app.route('/logout')
+@app.route('/logout', methods=["GET"])
 def logout():
     session.pop('loggedin', None)
     session.pop('id', None)
@@ -84,17 +85,17 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/menu')
+@app.route('/menu', methods=["GET"])
 def home():
     return render_template('menu.html')
 
 
-@app.route('/datasiswa')
+@app.route('/datasiswa', methods=["GET"])
 def datasiswa():
     return render_template('datasiswa.html')
 
 
-@app.route('/datanilai')
+@app.route('/datanilai', methods=["GET"])
 def datanilai():
     return render_template('datanilai.html')
 
@@ -123,7 +124,7 @@ def upload_file_data_siswa():
     return redirect(url_for('home'))
 
 
-@app.route('/fetch_data-nilai')
+@app.route('/fetch_data-nilai', methods=["GET"])
 def fetch_data_nilai():
      # Retrieve data from the database
     cursor = mysql.connection.cursor()
@@ -148,7 +149,7 @@ def fetch_data_nilai():
     return jsonify(data_list)
 
 
-@app.route('/fetch_data-siswa')
+@app.route('/fetch_data-siswa', methods=["GET"])
 def fetch_data_siswa():
      # Retrieve data from the database
     cursor = mysql.connection.cursor()
@@ -207,19 +208,22 @@ def parseCSVDatasiswa(filePath):
              cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
              cursor.execute(sql, value)
              mysql.connection.commit()
-             
+
 
 @app.route('/file_upload-data-clustering', methods=['POST'])
 def upload_file_data_clustering():
     uploaded_file_data_clustering = request.files['file']
-    if upload_file_data_clustering.filename != '':
-        file_path_data_clustering = os.path.join(app.config['UPLOAD_FOLDER_DATA_CLUSTERING'], upload_file_data_clustering.filename)
-        upload_file_data_clustering.save(file_path_data_clustering)
+    if uploaded_file_data_clustering.filename != '':
+        file_path_data_clustering = os.path.join(app.config['UPLOAD_FOLDER_DATA_CLUSTERING'], uploaded_file_data_clustering.filename)
+        uploaded_file_data_clustering.save(file_path_data_clustering)
         parseCSVDataClustering(file_path_data_clustering)
     return redirect(url_for('home'))
 
 def parseCSVDataClustering(filePath):
-    data = pd.read_csv(filePath, sep=';')
+     # CVS Column Names
+    col_names = ['No','Nama', 'Peng Sem 1', 'Ket Sem 1' , 'Peng Sem 2', 'Ket Sem 2', 'Kelas Awal']
+      # Use Pandas to parse the CSV file
+    data = pd.read_csv(filePath, sep=';', names=col_names, header=None)
     data = data.iloc[1:]
     
     # Replace commas (,) with periods (.) and convert to float
@@ -306,29 +310,52 @@ def parseCSVDataClustering(filePath):
 
     # Save the divided clusters to a single CSV file
     output_data = pd.concat([a, b, c, d, e, f, g, h], axis=0)
+    
     # Append 'Kelas Hasil' column to the original data
     data['Kelas Hasil'] = output_data['Kelas Hasil']
-
-    for _, row in output_data.iterrows():
-        nama = row['Nama']
-        peng_sem_1 = row['Peng Sem 1']
-        peng_sem_2 = row['Peng Sem 2']
-        ket_sem_1 = row['Ket Sem 1']
-        ket_sem_2 = row['Ket Sem 2']
-        kelas_awal = row['Kelas Awal']
-        kelas_hasil = row['Kelas Hasil']
-        
-        query = "INSERT INTO cluster (nama, peng_sem_1, peng_sem_2, ket_sem_1, ket_sem_2, kelas_awal, kelas_hasil) " \
-                "VALUES (NULL, % s, % s, % s, % s, % s, % s, % s)"
-        
-        values = (nama, peng_sem_1, peng_sem_2, ket_sem_1, ket_sem_2, kelas_awal, kelas_hasil)
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute(sql, values)
+    data['Cluster'] = output_data['Cluster']
+    
+    for _, row in data.iterrows():
+        query = "INSERT INTO cluster (nama, peng_sem_1, peng_sem_2, ket_sem_1, ket_sem_2, cluster, kelas_awal ,kelas_akhir) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+        values = (
+            str(row['Nama']),
+            float(row['Peng Sem 1']),
+            float(row['Peng Sem 2']),
+            float(row['Ket Sem 1']),
+            float(row['Ket Sem 2']),
+            str(row['Cluster']),
+            str(row['Kelas Hasil']),
+            str(row['Kelas Awal'])
+        )
+        cursor = mysql.connection.cursor()
+        cursor.execute(query, values)
         mysql.connection.commit()
 
-@app.route('/clustering')
+
+@app.route('/clustering', methods=['GET'])
 def clusteringKelas():
     return render_template('clusteringkelas.html')
+
+@app.route('/fetch_data-clustering', methods=['GET'])
+def fetch_data_clustering():
+     # Retrieve data from the database
+    cursor = mysql.connection.cursor()
+    query = "SELECT * FROM cluster"
+    cursor.execute(query)
+    data = cursor.fetchall()
+    cursor.close()
+
+    # Convert the data into a list of dictionaries
+    data_list = []
+    for row in data:
+        data_dict = {
+            'nama': row[1],
+            'cluster': row[6],
+            'kelas_awal': row[8],
+            'kelas_akhir': row[7]
+        }
+        data_list.append(data_dict)
+    return jsonify(data_list)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
