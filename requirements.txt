@@ -2,7 +2,15 @@ flask
 flask-mysqldb
 Flask-SQLAlchemy
 SQLAlchemy
-from sklearn.metrics import pairwise_distances
-from sklearn_extra.cluster import KMedoids
+sklearn
+scikit-learn-extra
+fpdf
+werkzeug
 pandas
 numpy
+ast
+html
+io
+csv
+os
+re
