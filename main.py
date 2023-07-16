@@ -220,11 +220,7 @@ def upload_file_data_clustering():
     return redirect(url_for('home'))
 
 def parseCSVDataClustering(filePath):
-     # CVS Column Names
-    col_names = ['No','Nama', 'Peng Sem 1', 'Ket Sem 1' , 'Peng Sem 2', 'Ket Sem 2', 'Kelas Awal']
-      # Use Pandas to parse the CSV file
-    data = pd.read_csv(filePath, sep=';', names=col_names, header=None)
-    data = data.iloc[1:]
+    data = pd.read_csv(filePath, sep=';')
     
     # Replace commas (,) with periods (.) and convert to float
     data['Peng Sem 1'] = data['Peng Sem 1'].str.replace(',', '.').astype(float)
