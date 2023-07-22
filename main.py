@@ -234,7 +234,6 @@ def parseCSVDataClustering(filePath):
     # Extract attributes from the data
     attributes = ['Nama', 'Peng Sem 1', 'Ket Sem 1', 'Peng Sem 2', 'Ket Sem 2']
     X = data[attributes].values
-    
     # Perform pairwise distance calculation
     distances = pairwise_distances(X[:, 1:], metric='euclidean')
 
@@ -256,24 +255,54 @@ def parseCSVDataClustering(filePath):
                 best_dissimilarity = dissimilarity
         return best_medoid, best_dissimilarity
 
+    def find_best_medoid_2(cluster_points, cluster_indices, medoids_1):
+        best_medoid = None
+        best_dissimilarity = float('inf')
+        for i in range(len(cluster_points)):
+            dissimilarity = total_dissimilarity(i, cluster_indices)
+            # Check if the new medoid index is not in medoids_1
+            if i not in medoids_1 and np.all(dissimilarity < best_dissimilarity):
+                best_medoid = cluster_indices[i]  # Update with cluster index
+                best_dissimilarity = dissimilarity
+        return best_medoid, best_dissimilarity
+
     # Perform K-Medoids clustering
     k = 3  # Number of clusters
     medoids_indices = KMedoids(n_clusters=k, random_state=0).fit_predict(distances)
 
     # Find the best medoid for each cluster
     medoids = []
+    medoids_2 = []
     for cluster_id in range(k):
         cluster_indices = np.where(medoids_indices == cluster_id)[0]
         cluster_points = X[cluster_indices]
         medoid_index, _ = find_best_medoid(cluster_points, cluster_indices)
         medoids.append(medoid_index)
 
-    # Retrieve all attributes from data
+    # Find the best medoid for each cluster (updated)
+    for cluster_id in range(k):
+        cluster_indices = np.where(medoids_indices == cluster_id)[0]
+        cluster_points = X[cluster_indices]
+        medoid_index, _ = find_best_medoid_2(cluster_points, cluster_indices, medoids)
+        medoids_2.append(medoid_index)
+    # Find the cluster assignments based on distances from medoids_1
+    # Calculate distances from medoids_1
+    distances_from_medoids_2 = pairwise_distances(X[medoids, 1:], X[:, 1:], metric='euclidean')
+
+    # Calculate distances from medoids_2
+    distances_from_medoids_1 = pairwise_distances(X[medoids_2, 1:], X[:, 1:], metric='euclidean')
+    min_distances_medoids_1 = np.min(distances_from_medoids_1, axis=0)
+    total_min_distances_medoids_1 = np.sum(min_distances_medoids_1)
+
+    min_distances_medoids_2 = np.min(distances_from_medoids_2, axis=0)
+    total_min_distances_medoids_2 = np.sum(min_distances_medoids_2)
+    cluster_assignments_medoids_1 = np.argmin(distances_from_medoids_1, axis=0)
+    
     all_attributes = X
 
     # Create a new DataFrame with cluster assignments
     cluster_data = pd.DataFrame(all_attributes, columns=attributes)
-    cluster_data['Cluster'] = medoids_indices + 1
+    cluster_data['Cluster'] = cluster_assignments_medoids_1 + 1
 
     # Divide clusters
     cluster_counts = cluster_data['Cluster'].value_counts()
@@ -309,8 +338,8 @@ def parseCSVDataClustering(filePath):
 
     # Save the divided clusters to a single CSV file
     output_data = pd.concat([a, b, c, d, e, f, g, h], axis=0)
-    
-    # Append 'Kelas Hasil' column to the original data
+
+    output_data = output_data.sort_index()
     data['Kelas Hasil'] = output_data['Kelas Hasil']
     data['Cluster'] = output_data['Cluster']
     
